@@ -1,9 +1,9 @@
 body {
-    font-family: 'Courier New', Courier, monospace; /* Моноширинный шрифт для загадочности */
+    font-family: 'Courier New', Courier, monospace;
     background-image: url('background2.gif');
-    background-size: cover; /* Растянуть на весь экран */
-    background-repeat: no-repeat; /* Запретить повторение */
-    color: #e0e0e0; /* Светлый текст */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #e0e0e0;
     margin: 0;
     padding: 20px;
     padding-top: 10%;
@@ -12,17 +12,17 @@ body {
 #game {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #2a2a2a; /* Тёмный контейнер */
+    background-color: #2a2a2a;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 55, 128, 0.3); /* Фиолетовое свечение */
-    border: 1px solid #003d82; /* Тёмно-фиолетовая рамка */
+    box-shadow: 0 0 15px rgba(0, 55, 128, 0.3);
+    border: 1px solid #003d82;
 }
 
 h1 {
     text-align: center;
-    color: #25a4ee; /* Мистический голубой */
-    text-shadow: 0 0 10px rgba(128, 159, 231, 0.192); /* Свечение заголовка */
+    color: #25a4ee;
+    text-shadow: 0 0 10px rgba(128, 159, 231, 0.192);
     font-size: 28px;
 }
 
@@ -30,7 +30,7 @@ h1 {
     font-size: 18px;
     margin-bottom: 20px;
     line-height: 1.5;
-    color: #d3d3d3; /* Мягкий серый для текста */
+    color: #d3d3d3;
 }
 
 #codeInput {
@@ -39,11 +39,11 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin-bottom: 10px;
-    background-color: #333; /* Тёмный фон ввода */
-    color: #00ff00; /* Зелёный текст, как в старых терминалах */
+    background-color: #333;
+    color: #00ff00;
     border: 1px solid #003d82;
     border-radius: 5px;
-    resize: none; /* Запрет изменения размера */
+    resize: none;
 }
 
 button {
@@ -51,23 +51,23 @@ button {
     font-size: 16px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: #004882; /* Тёмно-синий */
+    background-color: #004882;
     color: #e0e0e0;
     border: none;
     border-radius: 5px;
-    transition: all 0.3s ease; /* Плавный переход */
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #00ff0057; /* Зелёный с прозрачностью при наведении */
-    box-shadow: 0 0 10px rgba(73, 128, 0, 0.7); /* Свечение */
+    background-color: #00ff0057;
+    box-shadow: 0 0 10px rgba(73, 128, 0, 0.7);
 }
 
 #feedback {
     margin-top: 20px;
     font-size: 16px;
-    color: #ff4500; /* Оранжевый для обратной связи */
-    text-shadow: 0 0 5px rgba(255, 69, 0, 0.5); /* Лёгкое свечение */
+    color: #ff4500;
+    text-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
 }
 
 #intro {
@@ -76,8 +76,8 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Чуть темнее для контраста */
-    color: #e0e0e0; /* Светлый текст */
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #e0e0e0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,33 +86,33 @@ button:hover {
 }
 
 #intro > div {
-    max-width: 600px; /* Ограничение ширины текста */
-    background-color: rgba(42, 42, 42, 0.9); /* Полупрозрачный тёмный фон */
+    max-width: 600px;
+    background-color: rgba(42, 42, 42, 0.9);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 55, 128, 0.5); /* Мистическое свечение */
-    border: 1px solid #003d82; /* Тёмно-синяя рамка */
-    text-align: center; /* Центрирование текста */
+    box-shadow: 0 0 15px rgba(0, 55, 128, 0.5);
+    border: 1px solid #003d82;
+    text-align: center;
 }
 
 #intro h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #25a4ee; /* Голубой заголовок */
-    text-shadow: 0 0 10px rgba(128, 159, 231, 0.3); /* Лёгкое свечение */
+    color: #25a4ee;
+    text-shadow: 0 0 10px rgba(128, 159, 231, 0.3);
 }
 
 #intro p {
     font-size: 18px;
     margin-bottom: 20px;
-    line-height: 1.6; /* Улучшенная читаемость */
-    color: #d3d3d3; /* Мягкий серый */
+    line-height: 1.6;
+    color: #d3d3d3;
 }
 
 #startGame {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #25a4ee; /* Голубая кнопка */
+    background-color: #25a4ee;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -121,6 +121,81 @@ button:hover {
 }
 
 #startGame:hover {
-    background-color: #115e17; /* Тёмно-зелёный при наведении */
-    box-shadow: 0 0 10px rgba(17, 94, 23, 0.7); /* Свечение */
+    background-color: #115e17;
+    box-shadow: 0 0 10px rgba(17, 94, 23, 0.7);
+}
+
+#volumeControl {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+#volumeControl:hover {
+    color: #00ff00;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        padding-top: 5%;
+    }
+
+    #game {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #description {
+        font-size: 16px;
+    }
+
+    #codeInput {
+        width: 95%;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    #feedback {
+        font-size: 14px;
+    }
+
+    #intro > div {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    #intro h2 {
+        font-size: 20px;
+    }
+
+    #intro p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    #startGame {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    #volumeControl {
+        bottom: 10px;
+        right: 10px;
+        font-size: 20px;
+    }
 }
