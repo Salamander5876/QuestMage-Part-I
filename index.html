@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практика JS: Часть 1 🌙</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Академия магии Пустоты</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="intro">
-        <div>
-            <h2>Пролог: Пустота хихикает</h2>
-            <p>В Академии Магии Пустоты, где учат превращать пустоту в чудеса, группа студентов пошла на экскурсию в катакомбы. Их преподаватель, маг-шутник, сказал: "Ща будет весело, держите попкорн, друзья!"</p>
-            <p>Он махнул рукой, и — бац! — врата захлопнулись, а студентов раскидало по катакомбам, как конфетки из пакета. "Разбирайтесь, умники! Это вам не домашка!" — хихикает он. А чтобы никто не потерялся, препод представил Сера Ивара Кимачеса, рыцаря-коллегу из Академии, как надзирателя: "Он знает всё, следит за вами, чтоб не пропали!"</p>
-            <p>Голос из глубин гудит: "Решайте загадки, или останетесь тут навек!" А препод добавляет: "Шоу начинается! Где мой ключ? Кажется, в супе оставил..." Теперь вам надо выбраться, пока он не устроил вечеринку с призраками.</p>
-            <p><strong>Гайд:</strong> "Испытать судьбу 🕯️" — проверить код, "Шёпот духов 💀" — подсказка, "Позвать друга ⚔️" — ответ от Сера Ивара Кимачеса, рыцаря-надзирателя. "🔊" — кнопка в правом нижнем углу для вкл/выкл звука.</p>
-            <button id="startGame">Начать приключение</button>
-        </div>
-    </div>
-    <div id="game">
-        <h1>Практика JS: Часть 1 "Квест в катакомбах 🌙"</h1>
-        <div id="location">
-            <p id="description"></p>
-            <button id="magicButton" style="display:none">Жми!</button>
-            <p id="stone" style="display:none">Текст</p>
-            <ul id="wall" style="display:none"></ul>
-            <textarea id="codeInput" rows="5" placeholder="Впиши заклинание (код)..."></textarea>
-            <button onclick="checkAnswer()">Испытать судьбу 🕯️</button>
-            <button onclick="showHint()">Шёпот духов 💀</button>
-            <button onclick="callFriend()">Позвать друга ⚔️</button>
-            <p id="feedback"></p>
-        </div>
-    </div>
-    <audio id="backgroundMusic" src="DREAM ALLIANCE - A Quiet Night.mp3" loop></audio>
-    <div id="volumeControl">
-        <span id="volumeIcon" onclick="toggleMusic()">🔊</span>
-    </div>
-    <script src="script.js"></script>
-</body>
+  <div class="wrapper">
+    <div id="particles"></div>
+    <header>
+      <h1>Академия магии Пустоты</h1>
+    </header>
+    <main>
+      <div class="grid">
+        <!-- Блоки квестов и теории будут добавлены через JavaScript -->
+      </div>
+    </main>
+  </div>
+  <footer>
+    <p>Создана в рамках лора Владимира Игоревича для ИСИП-23-2в</p>
+  </footer>
+  <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91ebbc8dbbecbcbc',t:'MTc0MTcwMzI4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

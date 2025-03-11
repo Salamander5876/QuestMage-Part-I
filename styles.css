@@ -1,201 +1,198 @@
-body {
-    font-family: 'Courier New', Courier, monospace;
-    background-image: url('background2.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 20px;
-    padding-top: 10%;
+@font-face {
+  font-family: 'Cattedrale';
+  src: url('Cattedrale [RUS by penka220] Regular.ttf') format('truetype');
 }
 
-#game {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 55, 128, 0.3);
-    border: 1px solid #003d82;
+@font-face {
+  font-family: 'OutlinePixel';
+  src: url('outline-pixel-7.ttf') format('truetype');
+}
+
+html, body {
+  height: 97%; /* Устанавливаем высоту 100% для body и html */
+  margin: 0;
+}
+
+body {
+  font-family: 'OutlinePixel', sans-serif;
+  background-color: #1e1e2f;
+  color: #e0e0e0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Магическая дымка */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(108, 92, 231, 0.05), transparent 70%);
+  opacity: 0.8;
+  z-index: -1;
+  filter: blur(50px);
+}
+
+/* Контейнер для контента */
+.wrapper {
+  min-height: 100%; /* Минимальная высота равна высоте экрана */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto; /* Растягиваем main, чтобы подвал оставался внизу */
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  background-color: #2d2d44;
+  border-bottom: 3px solid #6c5ce7;
+  box-shadow: 0 5px 20px rgba(108, 92, 231, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #f8c291, transparent);
 }
 
 h1 {
-    text-align: center;
-    color: #25a4ee;
-    text-shadow: 0 0 10px rgba(128, 159, 231, 0.192);
-    font-size: 28px;
+  font-family: 'Cattedrale', serif;
+  color: #f8c291;
+  text-shadow: 0 0 15px #f8c391b0, 2px 2px 5px black;
+  font-size: 50px;
+  letter-spacing: 3px;
+  margin: 0;
+  animation: pulseGlow 3s infinite alternate;
 }
 
-#description {
-    font-size: 18px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    color: #d3d3d3;
+@keyframes pulseGlow {
+  0% { text-shadow: 0 0 15px #6c5ce7, 2px 2px 5px black; }
+  80% { text-shadow: 0 0 25px #f8c391, 2px 2px 5px black; }
 }
 
-#codeInput {
-    width: 98%;
-    padding: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    margin-bottom: 10px;
-    background-color: #333;
-    color: #00ff00;
-    border: 1px solid #003d82;
-    border-radius: 5px;
-    resize: none;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    background-color: #004882;
-    color: #e0e0e0;
-    border: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+.grid-item {
+  background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+  padding: 25px;
+  border: 2px solid #6c5ce7;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.8s ease-in-out forwards;
 }
 
-button:hover {
-    background-color: #00ff0057;
-    box-shadow: 0 0 10px rgba(73, 128, 0, 0.7);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-#feedback {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #ff4500;
-    text-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #6c5ce7, 0 0 25px rgba(108, 92, 231, 0.5);
+  cursor: url('wib.cur'), auto;
 }
 
-#intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.grid-item h2 {
+  color: #f8c291;
+  font-size: 20px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(248, 195, 145, 0.13);
 }
 
-#intro > div {
-    max-width: 600px;
-    background-color: rgba(42, 42, 42, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 55, 128, 0.5);
-    border: 1px solid #003d82;
-    text-align: center;
+.grid-item p {
+  color: #d3d3d3;
+  font-size: 14px;
+  margin: 10px 0 0;
 }
 
-#intro h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #25a4ee;
-    text-shadow: 0 0 10px rgba(128, 159, 231, 0.3);
+.grid-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(108, 92, 231, 0.2), transparent);
+  transform: rotate(30deg);
+  transition: 0.5s;
 }
 
-#intro p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    color: #d3d3d3;
+.grid-item:hover::before {
+  transform: rotate(0deg);
+  opacity: 0.5;
 }
 
-#startGame {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #25a4ee;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
-#startGame:hover {
-    background-color: #115e17;
-    box-shadow: 0 0 10px rgba(17, 94, 23, 0.7);
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #f8c291;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(248, 195, 145, 0.171);
+  opacity: 0;
+  animation: fade 1.2s ease-in-out;
 }
 
-#volumeControl {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #e0e0e0;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+@keyframes fade {
+  0% { opacity: 1; transform: scale(1) translate(0, 0); }
+  50% { opacity: 0.7; transform: scale(1.5) translate(5px, -5px); }
+  100% { opacity: 0; transform: scale(0) translate(10px, -10px); }
 }
 
-#volumeControl:hover {
-    color: #00ff00;
+footer {
+  text-align: center;
+  font-family: 'Cattedrale', serif;
+  padding: 20px;
+  background-color: #2d2d44;
+  border-top: 2px solid #6c5ce7;
+  color: #f8c291;
+  font-size: 24px;
+  flex-shrink: 0; /* Предотвращаем сжатие футера */
 }
 
-/* Мобильная версия */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        padding-top: 5%;
-    }
+footer p {
+  margin: 0;
+  text-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+}
 
-    #game {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    #description {
-        font-size: 16px;
-    }
-
-    #codeInput {
-        width: 95%;
-        font-size: 14px;
-    }
-
-    button {
-        padding: 8px 12px;
-        font-size: 14px;
-        margin-right: 5px;
-    }
-
-    #feedback {
-        font-size: 14px;
-    }
-
-    #intro > div {
-        max-width: 90%;
-        padding: 15px;
-    }
-
-    #intro h2 {
-        font-size: 20px;
-    }
-
-    #intro p {
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
-
-    #startGame {
-        padding: 8px 16px;
-        font-size: 16px;
-    }
-
-    #volumeControl {
-        bottom: 10px;
-        right: 10px;
-        font-size: 20px;
-    }
+* {
+  cursor: url('normal cursor.cur'), auto;
 }
