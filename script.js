@@ -1,6 +1,6 @@
 const courses = [
   { title: "Теория: Основы HTML", description: "Изучите основы HTML: Магию разметки.", link: "main/theoryHTML/index.html" },
-  { title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей.", link: "main/theoryCSS/index.html" },
+  { title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей.", link: "main/theoryCSS/Index.html" },
   { title: "Теория: Основы JS", description: "Изучите основы JavaScript в магической библиотеке.", link: "main/theoryJS/index.html" },
   { title: "Квест в катакомбах", description: "Начни своё приключение с основ JavaScript.", link: "main/quest1/index.html" },
 ];
