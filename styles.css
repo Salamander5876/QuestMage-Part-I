@@ -14,7 +14,7 @@
 }
 
 html, body {
-  height: 98%;
+  height: 100%;
   margin: 0;
 }
 
@@ -296,6 +296,7 @@ footer {
   color: #f8c291;
   font-size: 24px;
   flex-shrink: 0;
+  height: 3%
   
 }
 
