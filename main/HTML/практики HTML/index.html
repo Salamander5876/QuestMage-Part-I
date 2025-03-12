@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лучшие практики HTML: Практические задания</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      margin-bottom: 10px;
+    }
+    .code-container {
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a {
+      color: #62e326;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #7826e3;
+      margin: 20px 0;
+    }
+    .emoji { font-size: 1.2em; }
+    details { margin: 10px 0; }
+    summary { cursor: pointer; color: #f8c291; }
+  </style>
+</head>
+<body>
+  <h1>Лучшие практики HTML: Практические задания <span class="emoji">✨</span></h1>
+  <p>Юный маг! Добро пожаловать в мастерскую Академии Пустоты. Здесь ты отточишь свои навыки, создавая идеальные свитки HTML. Выполняй задания, используй подсказки и проверяй решения в спойлерах!</p>
+
+  <!-- Задание 1 -->
+  <div class="task">
+    <h2>Задание 1: Изображение с доступностью</h2>
+    <p>Создай тег изображения с <code>alt</code> и добавь ленивую загрузку.</p>
+    <p><strong>Подсказка:</strong> Используй <code>loading="lazy"</code> для экономии магии браузера.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+      
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;img src="wand.jpg" alt="Волшебная палочка в руках мага" loading="lazy"&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 2 -->
+  <div class="task">
+    <h2>Задание 2: Метаданные для поисковых големов</h2>
+    <p>Добавь метатеги <code>description</code> и <code>keywords</code> для страницы Академии.</p>
+    <p><strong>Подсказка:</strong> <code>keywords</code> помогает големам понять тематику.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;meta name="description" content="Академия Пустоты учит магии HTML"&gt;
+&lt;meta name="keywords" content="HTML, магия, код"&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 3 -->
+  <div class="task">
+    <h2>Задание 3: Безопасная ссылка</h2>
+    <p>Создай ссылку на "Книгу заклинаний", открывающуюся в новой вкладке с защитой.</p>
+    <p><strong>Подсказка:</strong> Добавь <code>rel="noopener noreferrer"</code> против тёмной магии хакеров.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;a href="https://spells.com" target="_blank" rel="noopener noreferrer"&gt;Книга заклинаний&lt;/a&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 4 -->
+  <div class="task">
+    <h2>Задание 4: Семантический каркас</h2>
+    <p>Собери страницу с <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> и <code>&lt;footer&gt;</code>.</p>
+    <p><strong>Подсказка:</strong> <code>&lt;nav&gt;</code> — для меню, <code>&lt;main&gt;</code> — только один на страницу.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Академия&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Академия Пустоты&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;nav&gt;
+    &lt;a href="#home"&gt;Домой&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;p&gt;Добро пожаловать!&lt;/p&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;© 2025&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 5 -->
+  <div class="task">
+    <h2>Задание 5: Форма для записи</h2>
+    <p>Создай форму с полем имени, email и кнопкой. Добавь <code>required</code>.</p>
+    <p><strong>Подсказка:</strong> Используй <code>&lt;label&gt;</code> для связи текста с полем через атрибут <code>for</code>.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;form action="/signup" method="post"&gt;
+  &lt;label for="name"&gt;Имя:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;button type="submit"&gt;Записаться&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 6 -->
+  <div class="task">
+    <h2>Задание 6: Спойлер с тайной</h2>
+    <p>Создай элемент <code>&lt;details&gt;</code> с заголовком "Секрет" и скрытым содержимым.</p>
+    <p><strong>Подсказка:</strong> Элемент <code>&lt;summary&gt;</code> отображает заголовок, а содержимое остается скрытым до клика.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;details&gt;
+  &lt;summary&gt;Секрет&lt;/summary&gt;
+  &lt;p&gt;Магия HTML в чистоте кода!&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 7 -->
+  <div class="task">
+    <h2>Задание 7: Видео-портал</h2>
+    <p>Добавь видео через <code>&lt;iframe&gt;</code> с атрибутами для адаптивности.</p>
+    <p><strong>Подсказка:</strong> Используй <code>allowfullscreen</code> для полноэкранного режима.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Магия" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <!-- Задание 8 -->
+  <div class="task">
+    <h2>Задание 8: Адаптивная картинка</h2>
+    <p>Создай элемент <code>&lt;picture&gt;</code> с двумя версиями изображения для разных условий просмотра.</p>
+    <p><strong>Подсказка:</strong> Используй элемент <code>&lt;source&gt;</code> для указания альтернативных версий изображения.</p>
+    <div class="code-container">
+      <pre><code><!-- Ваш код здесь --></code></pre>
+    </div>
+    <details>
+      <summary>Решение</summary>
+      <div class="code-container">
+        <pre><code>&lt;picture&gt;
+  &lt;source media="(max-width: 600px)" srcset="small-spell.jpg"&gt;
+  &lt;img src="big-spell.jpg" alt="Заклинание"&gt;
+&lt;/picture&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+      </div>
+    </details>
+  </div>
+
+  <hr>
+  <p>Твои свитки готовы к проверке старейшинами Пустоты! Используй семантику, проверяй код на валидность и экспериментируй с магией HTML!</p>
+
+  <script>
+    function copyCode(button) {
+      // Находим ближайший контейнер с классом code-container, содержащий элемент <pre>
+      const container = button.parentElement;
+      const code = container.querySelector("pre").innerText;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>

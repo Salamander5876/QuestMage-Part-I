@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML-элементы: Магия блоков</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>HTML-элементы: Магия блоков <span class="emoji">✨</span></h1>
+  <p>Привет, юный маг! В Академии Пустоты ты освоил основы HTML. Теперь узнаем про элементы — заклинания, из которых строятся страницы!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина сказал: 'Теги — кирпичи Веба. Без них твой замок рухнет.' И вручил мне свиток с <code>&lt;h1&gt;</code>."</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Что такое элементы? <span class="emoji">🧱</span></h2>
+  <p>Элементы — это теги в <code>&lt;&gt;</code>, которые создают структуру страницы. Например, <code>&lt;p&gt;</code> для текста или <code>&lt;img&gt;</code> для картинок. Бывают парные (<code>&lt;tag&gt;контент&lt;/tag&gt;</code>) и одиночные (<code>&lt;tag&gt;</code>).</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг забыл закрыть <code>&lt;p&gt;</code>. Его текст растёкся, как зелье из разбитого котла!"</p>
+  </div>
+
+  <hr>
+
+  <h2>2. Главные заклинания <span class="emoji">🌟</span></h2>
+
+  <h3>Структура документа</h3>
+  <p><code>&lt;html&gt;</code> — корень страницы.</p>
+  <p><code>&lt;head&gt;</code> — метаданные (заголовок, кодировка).</p>
+  <p><code>&lt;body&gt;</code> — видимый контент.</p>
+  <pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Магия&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Контент&lt;/body&gt;&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Текст</h3>
+  <p><code>&lt;h1&gt; - &lt;h6&gt;</code> — заголовки от громкого до тихого.</p>
+  <p><code>&lt;p&gt;</code> — абзацы для текста.</p>
+  <p><code>&lt;strong&gt;</code> — жирный текст, <code>&lt;em&gt;</code> — курсив.</p>
+  <pre><code>&lt;h1&gt;Заголовок&lt;/h1&gt;
+&lt;p&gt;Текст &lt;strong&gt;жирный&lt;/strong&gt; и &lt;em&gt;курсив&lt;/em&gt;.&lt;/p&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Списки</h3>
+  <p><code>&lt;ul&gt;</code> — точки, <code>&lt;ol&gt;</code> — номера, <code>&lt;li&gt;</code> — пункты.</p>
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;Огонь&lt;/li&gt;
+  &lt;li&gt;Лёд&lt;/li&gt;
+&lt;/ul&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Ссылки и картинки</h3>
+  <p><code>&lt;a&gt;</code> — ссылка с <code>href</code>.</p>
+  <p><code>&lt;img&gt;</code> — картинка с <code>src</code> и <code>alt</code>.</p>
+  <pre><code>&lt;a href="https://void.com"&gt;В Пустоту!&lt;/a&gt;
+&lt;img src="wand.jpg" alt="Палочка"&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик спутал <code>&lt;ul&gt;</code> с <code>&lt;ol&gt;</code>. Его зелье вышло... с сюрпризом."</p>
+  </div>
+
+  <hr>
+
+  <h2>3. Бонусные заклинания <span class="emoji">🎁</span></h2>
+
+  <h3>Разделители</h3>
+  <p><code>&lt;br&gt;</code> — перенос строки, <code>&lt;hr&gt;</code> — линия.</p>
+  <pre><code>Текст&lt;br&gt;Новая строка
+&lt;hr&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Блоки</h3>
+  <p><code>&lt;div&gt;</code> — контейнер для группировки.</p>
+  <p><code>&lt;span&gt;</code> — выделение части текста.</p>
+  <pre><code>&lt;div&gt;&lt;p&gt;Блок&lt;/p&gt;&lt;/div&gt;
+&lt;span&gt;Выделено&lt;/span&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Семантика</h3>
+  <p><code>&lt;header&gt;</code> — шапка, <code>&lt;footer&gt;</code> — подвал.</p>
+  <p><code>&lt;main&gt;</code> — основной контент, <code>&lt;section&gt;</code> — раздел.</p>
+  <p><code>&lt;article&gt;</code> — статья, <code>&lt;nav&gt;</code> — навигация.</p>
+  <pre><code>&lt;header&gt;&lt;h1&gt;Шапка&lt;/h1&gt;&lt;/header&gt;
+&lt;main&gt;&lt;section&gt;Раздел&lt;/section&gt;&lt;/main&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Таблицы</h3>
+  <p><code>&lt;table&gt;</code> — таблица, <code>&lt;tr&gt;</code> — строка, <code>&lt;th&gt;</code> — заголовок, <code>&lt;td&gt;</code> — ячейка.</p>
+  <pre><code>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Имя&lt;/th&gt;&lt;td&gt;Гарри&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Формы</h3>
+  <p><code>&lt;form&gt;</code> — форма, <code>&lt;input&gt;</code> — поле, <code>&lt;button&gt;</code> — кнопка.</p>
+  <pre><code>&lt;form&gt;
+  &lt;input type="text" placeholder="Имя"&gt;
+  &lt;button&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг добавил <code>&lt;img&gt;</code> без <code>alt</code>. Картинка пропала, и все гадали: 'А что это было?'"</p>
+  </div>
+
+  <hr>
+
+  <h2>4. Практика: Твой свиток <span class="emoji">🛠️</span></h2>
+  <div class="task">
+    <p><strong>Задание:</strong> Создай страницу с:</p>
+    <ul>
+      <li><code>&lt;h1&gt;</code>: "Книга заклинаний"</li>
+      <li><code>&lt;p&gt;</code>: "Тут хранится магия Веба."</li>
+      <li><code>&lt;ul&gt;</code>: 3 заклинания ("Огонь", "Лёд", "Ветер").</li>
+      <li><code>&lt;img&gt;</code>: Картинка книги (вымышленный путь).</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Книга&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Книга заклинаний&lt;/h1&gt;
+  &lt;p&gt;Тут хранится магия Веба.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Огонь&lt;/li&gt;
+    &lt;li&gt;Лёд&lt;/li&gt;
+    &lt;li&gt;Ветер&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;img src="book.jpg" alt="Книга"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твой свиток — шаг к величию. Напиши его, и Пустота улыбнётся!"</p>
+  </div>
+
+  <hr>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>

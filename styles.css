@@ -8,21 +8,33 @@
   src: url('outline-pixel-7.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'EpilepsySans';
+  src: url('EpilepsySans.ttf') format('truetype');
+}
+
 html, body {
-  height: 97%; /* Устанавливаем высоту 100% для body и html */
+  height: 97%;
   margin: 0;
 }
 
 body {
-  font-family: 'OutlinePixel', sans-serif;
   background-color: #1e1e2f;
   color: #e0e0e0;
   padding: 0;
   position: relative;
   overflow-x: hidden;
+  animation: backgroundPulse 10s infinite alternate; /* Пульсация фона */
 }
 
-/* Магическая дымка */
+/* Анимация пульсации фона */
+@keyframes backgroundPulse {
+  0% { background-color: #1e1e2f; }
+  50% { background-color: #2d2d44; }
+  100% { background-color: #1e1e2f; }
+}
+
+/* Магическая дымка с интерактивностью */
 body::before {
   content: '';
   position: absolute;
@@ -34,17 +46,31 @@ body::before {
   opacity: 0.8;
   z-index: -1;
   filter: blur(50px);
+  transition: all 0.5s ease;
+}
+
+/* Элемент для волн от курсора */
+body::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(248, 195, 145, 0.2), transparent 70%);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
 /* Контейнер для контента */
 .wrapper {
-  min-height: 100%; /* Минимальная высота равна высоте экрана */
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto; /* Растягиваем main, чтобы подвал оставался внизу */
+  flex: 1 0 auto;
 }
 
 header {
@@ -95,8 +121,9 @@ h1 {
 }
 
 .grid-item {
+  font-family: 'OutlinePixel', monospace;
   background: linear-gradient(145deg, #2d2d44, #1a1a2e);
-  padding: 25px;
+  padding: 20px;
   border: 2px solid #6c5ce7;
   border-radius: 15px;
   text-align: center;
@@ -109,27 +136,77 @@ h1 {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .grid-item:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px #6c5ce7, 0 0 25px rgba(108, 92, 231, 0.5);
   cursor: url('wib.cur'), auto;
 }
 
+.grid-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(108, 92, 231, 0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.grid-item:hover::after {
+  opacity: 1;
+  animation: pulseGlowEffect 1.5s infinite alternate;
+}
+
+@keyframes pulseGlowEffect {
+  0% { opacity: 0.5; }
+  100% { opacity: 0.8; }
+}
+
+.grid-item:hover h2 {
+  animation: floatText 1s infinite alternate;
+}
+
+.grid-item:hover p {
+  animation: floatText 1s infinite alternate 0.2s;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.step-number {
+  font-family: 'OutlinePixel', sans-serif;
+  position: absolute;
+  top: 80%;
+  left: 10px;
+  background: #6c5ce7;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .grid-item h2 {
+  font-family: 'OutlinePixel', sans-serif;
   color: #f8c291;
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
-  text-shadow: 0 0 10px rgba(248, 195, 145, 0.13);
 }
 
 .grid-item p {
+  font-family: 'EpilepsySans', sans-serif;
   color: #d3d3d3;
-  font-size: 14px;
+  font-size: 20px;
   margin: 10px 0 0;
 }
 
@@ -171,6 +248,33 @@ h1 {
   animation: fade 1.2s ease-in-out;
 }
 
+.hover-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+  opacity: 1;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Фоновые частицы */
+.bg-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(48, 233, 125, 0.911);
+  border-radius: 50%;
+  opacity: 0;
+  animation: bgParticleFade 5s infinite;
+}
+
+@keyframes bgParticleFade {
+  0% { opacity: 0; transform: scale(0); }
+  20% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5) translateY(-50px); }
+}
+
 @keyframes fade {
   0% { opacity: 1; transform: scale(1) translate(0, 0); }
   50% { opacity: 0.7; transform: scale(1.5) translate(5px, -5px); }
@@ -185,7 +289,7 @@ footer {
   border-top: 2px solid #6c5ce7;
   color: #f8c291;
   font-size: 24px;
-  flex-shrink: 0; /* Предотвращаем сжатие футера */
+  flex-shrink: 0;
 }
 
 footer p {

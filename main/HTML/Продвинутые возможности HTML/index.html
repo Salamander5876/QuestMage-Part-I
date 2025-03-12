@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продвинутый HTML: Магия следующего уровня</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Продвинутый HTML: Магия следующего уровня <span class="emoji">✨</span></h1>
+  <p>Юный маг! Ты уже строишь страницы в Академии Пустоты. Теперь пора овладеть высшей магией HTML — мультимедиа, интерактивностью и мощными заклинаниями!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина показал свиток с <code>&lt;video&gt;</code>. 'Это не просто страница, а портал в другие измерения!' — провозгласил он."</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Что такое продвинутый HTML? <span class="emoji">🧙‍♂️</span></h2>
+  <p>Продвинутый HTML — это теги и возможности, которые превращают статичный свиток в живую магию: видео, аудио, рисование, сложные формы. Это как перейти от пергамента к волшебному зеркалу!</p>
+  <p>Ты узнаешь, как:</p>
+  <ul>
+    <li>Добавить звук и видео.</li>
+    <li>Рисовать прямо на странице.</li>
+    <li>Создавать умные формы.</li>
+    <li>Использовать скрытые силы атрибутов.</li>
+  </ul>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг однажды добавил <code>&lt;canvas&gt;</code> без скрипта. 'Где магия?' — спросил он. Старейшина лишь указал на <code>&lt;script&gt;</code>."</p>
+  </div>
+
+  <hr>
+
+  <h2>2. Мультимедийные заклинания <span class="emoji">🎥</span></h2>
+
+  <h3><code>&lt;video&gt;</code> — Видео</h3>
+  <p>Показывает движущиеся картины. Атрибуты: <code>src</code> (путь), <code>controls</code> (управление), <code>autoplay</code> (автозапуск).</p>
+  <pre><code>&lt;video src="magic.mp4" controls width="300"&gt;
+  Ваш браузер не поддерживает видео.
+&lt;/video&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  <p>Текст внутри — запасной вариант для старых браузеров.</p>
+
+  <h3><code>&lt;audio&gt;</code> — Аудио</h3>
+  <p>Звуки и музыка. Похоже на <code>&lt;video&gt;</code>, но без картинки.</p>
+  <pre><code>&lt;audio src="spell.wav" controls&gt;
+  Нет звука? Обнови браузер!
+&lt;/audio&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;source&gt;</code> — Источники</h3>
+  <p>Добавляет варианты файлов для <code>&lt;video&gt;</code> или <code>&lt;audio&gt;</code>.</p>
+  <pre><code>&lt;video controls&gt;
+  &lt;source src="magic.mp4" type="video/mp4"&gt;
+  &lt;source src="magic.webm" type="video/webm"&gt;
+&lt;/video&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик забыл <code>controls</code>. Видео молчало, пока он не щёлкнул пальцами и не добавил заклинание."</p>
+  </div>
+
+  <hr>
+
+  <h2>3. Интерактивные заклинания <span class="emoji">🎨</span></h2>
+
+  <h3><code>&lt;canvas&gt;</code> — Холст</h3>
+  <p>Площадка для рисования с помощью JavaScript. Задай размер через <code>width</code> и <code>height</code>.</p>
+  <pre><code>&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  const ctx = document.getElementById('myCanvas').getContext('2d');
+  ctx.fillStyle = 'red';
+  ctx.fillRect(10, 10, 50, 50);
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  <p>Рисует красный квадрат. Без <code>&lt;script&gt;</code> — просто пустота!</p>
+
+  <h3><code>&lt;details&gt;</code> и <code>&lt;summary&gt;</code> — Спойлер</h3>
+  <p>Скрывает контент, который можно открыть кликом.</p>
+  <pre><code>&lt;details&gt;
+  &lt;summary&gt;Секрет магии&lt;/summary&gt;
+  &lt;p&gt;Всё в коде!&lt;/p&gt;
+&lt;/details&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;dialog&gt;</code> — Всплывающее окно</h3>
+  <p>Модальное окно с помощью JS.</p>
+  <pre><code>&lt;dialog id="myDialog"&gt;
+  &lt;p&gt;Привет, маг!&lt;/p&gt;
+  &lt;button onclick="document.getElementById('myDialog').close()"&gt;Закрыть&lt;/button&gt;
+&lt;/dialog&gt;
+&lt;script&gt;
+  document.getElementById('myDialog').showModal();
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг нарисовал дракона на <code>&lt;canvas&gt;</code>. 'Теперь оживи его!' — потребовал старейшина."</p>
+  </div>
+
+  <hr>
+
+  <h2>4. Умные формы <span class="emoji">📝</span></h2>
+
+  <h3><code>&lt;form&gt;</code> — Основа</h3>
+  <p>Контейнер для полей. Атрибуты: <code>action</code> (куда отправить), <code>method</code> (как).</p>
+  <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;input type="text" name="name"&gt;
+  &lt;button type="submit"&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;input&gt;</code> — Поля</h3>
+  <p>Типы: <code>text</code>, <code>email</code>, <code>password</code>, <code>checkbox</code>, <code>file</code> и др.</p>
+  <pre><code>&lt;input type="email" placeholder="Почта" required&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  <p><code>required</code> — поле обязательно!</p>
+
+  <h3><code>&lt;datalist&gt;</code> — Подсказки</h3>
+  <p>Список вариантов для <code>&lt;input&gt;</code>.</p>
+  <pre><code>&lt;input list="spells"&gt;
+&lt;datalist id="spells"&gt;
+  &lt;option value="Огонь"&gt;
+  &lt;option value="Лёд"&gt;
+&lt;/datalist&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик забыл <code>required</code>. Форма улетела пустой, и старейшина получил письмо: 'Ничего'."</p>
+  </div>
+
+  <hr>
+
+  <h2>5. Скрытые силы атрибутов <span class="emoji">🔮</span></h2>
+
+  <h3><code>data-*</code> — Пользовательские данные</h3>
+  <p>Хранит информацию для JS.</p>
+  <pre><code>&lt;div data-magic="fire"&gt;Огонь&lt;/div&gt;
+&lt;script&gt;
+  console.log(document.querySelector('div').dataset.magic); // "fire"
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>contenteditable</code> — Редактирование</h3>
+  <p>Позволяет менять текст прямо на странице.</p>
+  <pre><code>&lt;p contenteditable="true"&gt;Измени меня!&lt;/p&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>draggable</code> — Перетаскивание</h3>
+  <p>Делает элемент подвижным (с JS).</p>
+  <pre><code>&lt;div draggable="true"&gt;Тащи!&lt;/div&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг добавил <code>draggable</code> к котлу. Тот улетел за пределы страницы!"</p>
+  </div>
+
+  <hr>
+
+  <h2>6. Практика: Твой продвинутый свиток <span class="emoji">🛠️</span></h2>
+  <div class="task">
+    <p><strong>Задание:</strong> Создай страницу с:</p>
+    <ul>
+      <li><code>&lt;video&gt;</code>: Видео с управлением.</li>
+      <li><code>&lt;canvas&gt;</code>: Синий круг (JS).</li>
+      <li><code>&lt;form&gt;</code>: Поле "Имя" и кнопка.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Продвинутая магия&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;video src="magic.mp4" controls width="300"&gt;&lt;/video&gt;
+  &lt;canvas id="myCanvas" width="200" height="200"&gt;&lt;/canvas&gt;
+  &lt;form action="/submit" method="post"&gt;
+    &lt;input type="text" name="name" placeholder="Имя" required&gt;
+    &lt;button type="submit"&gt;Отправить&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;script&gt;
+    const ctx = document.getElementById('myCanvas').getContext('2d');
+    ctx.fillStyle = 'blue';
+    ctx.beginPath();
+    ctx.arc(100, 100, 50, 0, Math.PI * 2);
+    ctx.fill();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твой свиток — вершина магии HTML. Создай его, и Пустота задрожит от восторга!"</p>
+  </div>
+
+  <hr>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>

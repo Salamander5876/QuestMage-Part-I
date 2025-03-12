@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Семантический HTML: Магия смысла</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Семантический HTML: Магия смысла <span class="emoji">✨</span></h1>
+  <p>Юный маг! В Академии Пустоты ты уже знаешь, как строить страницы с тегами. Теперь откроем тайну семантического HTML — заклинаний, которые придают твоему коду смысл и силу!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина взглянул на свиток ученика: куча <code>&lt;div&gt;</code> без смысла. 'Это не магия, а хаос!' — воскликнул он. Так началась эра семантики."</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Что такое семантический HTML? <span class="emoji">🧠</span></h2>
+  <p>Семантический HTML — это когда теги не просто рисуют страницу, а объясняют, что на ней: шапка, статья, навигация. Это как подписать котёл с зельем: "Огонь", а не просто "Жидкость".</p>
+  <p>Зачем это нужно?</p>
+  <ul>
+    <li><strong>Доступность:</strong> слепые маги с экранными читалками поймут страницу.</li>
+    <li><strong>SEO:</strong> поисковые големы (Google) лучше найдут твой свиток.</li>
+    <li><strong>Читаемость:</strong> другие волшебники легко разберут твой код.</li>
+  </ul>
+  <p>Сравни: <code>&lt;div&gt;Заголовок&lt;/div&gt;</code> — просто коробка. А <code>&lt;header&gt;&lt;h1&gt;Заголовок&lt;/h1&gt;&lt;/header&gt;</code> — коробка с подписью "Верх сайта"!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг написал страницу одними <code>&lt;div&gt;</code>. Поисковый голем её проигнорировал, а читалка объявила: 'Пустота!' Семантика спасла его репутацию."</p>
+  </div>
+
+  <hr>
+
+  <h2>2. Главные семантические заклинания <span class="emoji">🌟</span></h2>
+
+  <h3><code>&lt;header&gt;</code> — Шапка страницы</h3>
+  <p>Верх сайта: логотип, заголовок, меню. Не путай с <code>&lt;head&gt;</code> — тот для метаданных!</p>
+  <pre><code>&lt;header&gt;
+  &lt;h1&gt;Академия Пустоты&lt;/h1&gt;
+&lt;/header&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;footer&gt;</code> — Подвал страницы</h3>
+  <p>Низ сайта: контакты, копирайт, мелкие ссылки.</p>
+  <pre><code>&lt;footer&gt;
+  &lt;p&gt;© 2025 Пустота&lt;/p&gt;
+&lt;/footer&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;main&gt;</code> — Главное содержание</h3>
+  <p>Сердце страницы, без шапки и подвала. Только один <code>&lt;main&gt;</code> на свиток!</p>
+  <pre><code>&lt;main&gt;
+  &lt;h2&gt;Добро пожаловать&lt;/h2&gt;
+  &lt;p&gt;Это основа.&lt;/p&gt;
+&lt;/main&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;section&gt;</code> — Раздел</h3>
+  <p>Часть страницы с общей темой, например, "Новости" или "О нас". Обычно с заголовком.</p>
+  <pre><code>&lt;section&gt;
+  &lt;h2&gt;Новости&lt;/h2&gt;
+  &lt;p&gt;Новое зелье готово!&lt;/p&gt;
+&lt;/section&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;article&gt;</code> — Статья</h3>
+  <p>Самостоятельный кусок контента: пост, новость, история. Может жить отдельно.</p>
+  <pre><code>&lt;article&gt;
+  &lt;h2&gt;Заклинание дня&lt;/h2&gt;
+  &lt;p&gt;Огонь в один клик.&lt;/p&gt;
+&lt;/article&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;nav&gt;</code> — Навигация</h3>
+  <p>Меню или ссылки для перемещения по сайту.</p>
+  <pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;Домой&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#magic"&gt;Магия&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;aside&gt;</code> — Боковая панель</h3>
+  <p>Дополнительный контент: реклама, заметки, не связан с основным.</p>
+  <pre><code>&lt;aside&gt;
+  &lt;p&gt;Купи котёл!&lt;/p&gt;
+&lt;/aside&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик заменил <code>&lt;nav&gt;</code> на <code>&lt;div&gt;</code>. Читалка потеряла меню, и маг остался без обеда!"</p>
+  </div>
+
+  <hr>
+
+  <h2>3. Редкие, но полезные заклинания <span class="emoji">🎁</span></h2>
+
+  <h3><code>&lt;figure&gt;</code> и <code>&lt;figcaption&gt;</code> — Иллюстрации</h3>
+  <p>Картинка или график с подписью.</p>
+  <pre><code>&lt;figure&gt;
+  &lt;img src="spell.jpg" alt="Заклинание"&gt;
+  &lt;figcaption&gt;Огненный шар&lt;/figcaption&gt;
+&lt;/figure&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;details&gt;</code> и <code>&lt;summary&gt;</code> — Спойлер</h3>
+  <p>Скрытый контент, который можно открыть.</p>
+  <pre><code>&lt;details&gt;
+  &lt;summary&gt;Секрет&lt;/summary&gt;
+  &lt;p&gt;Магия реальна!&lt;/p&gt;
+&lt;/details&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>&lt;time&gt;</code> — Время</h3>
+  <p>Дата или время для машинного чтения.</p>
+  <pre><code>&lt;time datetime="2025-03-11"&gt;11 марта 2025&lt;/time&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг спрятал рецепт зелья в <code>&lt;details&gt;</code>. 'Пусть попробуют найти!' — хмыкнул он."</p>
+  </div>
+
+  <hr>
+
+  <h2>4. Почему это важно? <span class="emoji">🏛️</span></h2>
+  <p>Семантика — это не просто красота кода. Она:</p>
+  <ul>
+    <li>Делает страницу понятной для всех: людей, машин, големов.</li>
+    <li>Ускоряет загрузку (поисковики любят порядок).</li>
+    <li>Готовит код к будущему: другие маги легко доработают твой свиток.</li>
+  </ul>
+  <p>Без семантики твой сайт — как книга без глав: всё свалено в кучу.</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Великий маг Пустоты сказал: 'Семантика — голос твоей страницы. Без неё она нема.'"</p>
+  </div>
+
+  <hr>
+
+  <h2>5. Практика: Твой семантический свиток <span class="emoji">🛠️</span></h2>
+  <div class="task">
+    <p><strong>Задание:</strong> Создай страницу Академии с:</p>
+    <ul>
+      <li><code>&lt;header&gt;</code>: Заголовок "Академия Пустоты".</li>
+      <li><code>&lt;nav&gt;</code>: Меню с 2 ссылками ("Главная", "Магия").</li>
+      <li><code>&lt;main&gt;</code>: <code>&lt;article&gt;</code> с заголовком "Новое заклинание" и текстом.</li>
+      <li><code>&lt;footer&gt;</code>: Текст "© Пустота".</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Академия&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Академия Пустоты&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#home"&gt;Главная&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#magic"&gt;Магия&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;h2&gt;Новое заклинание&lt;/h2&gt;
+      &lt;p&gt;Огонь теперь в кармане!&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;© Пустота&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твой свиток — ключ к порядку в Пустоте. Напиши его с умом!"</p>
+  </div>
+
+  <hr>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>
