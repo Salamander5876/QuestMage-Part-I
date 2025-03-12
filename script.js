@@ -20,7 +20,7 @@ const courses = [
   },
   { 
     step: "IV", 
-    title: "Запретные HTML", 
+    title: "Запретный HTML", 
     description: "Тёмные искусства скрытых возможностей",
     link: "main/HTML/Продвинутые возможности HTML/index.html"
   },
