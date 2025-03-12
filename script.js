@@ -107,4 +107,4 @@ document.addEventListener('click', (e) => {
 });
 
 // Создание фоновых частиц каждые 0.5 секунды
-setInterval(createBgParticle, 100);
+setInterval(createBgParticle, 10);
