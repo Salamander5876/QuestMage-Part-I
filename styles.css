@@ -290,15 +290,17 @@ h1 {
 footer {
   text-align: center;
   font-family: 'Cattedrale', serif;
-  padding: 20px;
+  padding: 10px;
   background-color: #2d2d44;
-  border-top: 2px solid #6c5ce7;
+  border-top: 2px solid #4f4f579c;
   color: #f8c291;
   font-size: 24px;
   flex-shrink: 0;
+  
 }
 
 footer p {
+  font-size: 22px;
   margin: 0;
   text-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
 }
