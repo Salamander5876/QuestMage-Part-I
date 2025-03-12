@@ -5,7 +5,7 @@ const courses = [
   { step: 3, title: "Семантика", description: "Семантический HTML:Теги описывающие содержание", link: "main/HTML/Семантический HTML/index.html" },
   { step: 4, title: "Продвинутый уровень", description: "Магия следующего уровня", link: "main/HTML/Продвинутые возможности HTML/index.html" },
   { step: 5, title: "Практика по HTML", description: "Реши задачи для закрепления марьяла", link: "main/HTML/практики HTML/index.html" },
-  { step: 6, title: "Теория: Вся основа HTML в крации", description: "Изучите основы HTML: Магию разметки", link: "main/theoryHTML/index.html" },
+  { step: 6, title: "Теория: Вся основа HTML в крации", description: "Изучите основы HTML: Магию разметки", link: "main/HTML/theoryHTML/index.html" },
   { step: 7, title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей", link: "main/theoryCSS/Index.html" },
   { step: 8, title: "Теория: Основы JS", description: "Изучите основы JavaScript в магической библиотеке", link: "main/theoryJS/index.html" },
   { step: 9, title: "Квест в катакомбах", description: "Начни своё приключение с основ JavaScript", link: "main/quest1/index.html" },
