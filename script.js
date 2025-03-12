@@ -5,10 +5,16 @@ const courses = [
   { step: 3, title: "Семантика", description: "Семантический HTML:Теги описывающие содержание", link: "main/HTML/Семантический HTML/index.html" },
   { step: 4, title: "Продвинутый уровень", description: "Магия следующего уровня", link: "main/HTML/Продвинутые возможности HTML/index.html" },
   { step: 5, title: "Практика по HTML", description: "Реши задачи для закрепления матерьяла", link: "main/HTML/практики HTML/index.html" },
-  { step: 6, title: "Теория: Вся основа HTML", description: "Основы HTML: Магию разметки", link: "main/HTML/theoryHTML/index.html" },
-  { step: 7, title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей", link: "main/theoryCSS/Index.html" },
-  { step: 8, title: "Теория: Основы JS", description: "Изучите основы JavaScript в магической библиотеке", link: "main/theoryJS/index.html" },
-  { step: 9, title: "Квест в катакомбах", description: "Начни своё приключение с основ JavaScript", link: "main/quest1/index.html" },
+  { step: 6, title: "Вся основа HTML", description: "Основы HTML: Магию разметки", link: "main/HTML/theoryHTML/index.html" },
+  { step: 7, title: "Введение в CSS", description: "Первые заклинания стилей", link: "main/CSS/Основы CSS Первые заклинания стилей/index.html" },
+  { step: 8, title: "Стена", description: "Блоки и позиционирование", link: "main/CSS/Работа с блоками и позиционированием/index.html" },
+  { step: 9, title: "Работа с макетами", description: "Flexbox и Grid", link: "main/CSS/Работа с макетами/index.html" },
+  { step: 10, title: "Адаптивность", description: "Медиа-запросы и мобильная версия", link: "main/CSS/Адаптивность и медиа-запросы/index.html" },
+  //{ step: 7, title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей", link: "main/CSS/theoryCSS/index.html" },
+
+  { step: 10, title: "Вся основа CSS", description: "Изучите основы CSS: Магия стилей", link: "main/CSS/theoryCSS/index.html" },
+  { step: 11, title: "Теория: Основы JS", description: "Изучите основы JavaScript в магической библиотеке", link: "main/JS/theoryJS/index.html" },
+  { step: 12, title: "Квест в катакомбах", description: "Начни своё приключение с основ JavaScript", link: "main/JS/quest1/index.html" },
 ];
 
 const grid = document.querySelector('.grid');

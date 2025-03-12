@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы CSS: Первые заклинания стилей</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Основы CSS: Первые заклинания стилей <span class="emoji">✨</span></h1>
+  <p>Юный маг! Ты уже освоил HTML и создал свои первые свитки. Теперь пора вдохнуть в них жизнь с помощью CSS — магии стилей, которая делает страницы красивыми и живыми!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина протянул тебе чистый свиток и сказал: 'CSS — это краски Пустоты. Научись ими управлять, и твои заклинания засияют!'"</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Что такое CSS? <span class="emoji">🧙‍♂️</span></h2>
+  <p>CSS (Cascading Style Sheets) — это язык стилей, который отвечает за внешний вид твоих HTML-страниц. Он задает цвета, размеры, шрифты и расположение элементов. Без CSS твои страницы — это просто сухой текст, а с ним — настоящее волшебство!</p>
+  <p>CSS работает вместе с HTML: если HTML — это скелет страницы, то CSS — её одежда и украшения.</p>
+
+  <h3>Способы подключения CSS</h3>
+  <ul>
+    <li><strong>Встроенный (inline):</strong> Стили пишутся прямо в теге через атрибут <code>style</code>. Быстро, но неудобно для больших страниц.</li>
+    <pre><code>&lt;p style="color: blue;"&gt;Синий текст&lt;/p&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <li><strong>Внутренний (internal):</strong> Стили пишутся в теге <code>&lt;style&gt;</code> внутри <code>&lt;head&gt;</code>. Удобно для одной страницы.</li>
+    <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    p { color: green; }
+  &lt;/style&gt;
+&lt;/head&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <li><strong>Внешний (external):</strong> Стили хранятся в отдельном файле (например, <code>styles.css</code>) и подключаются через <code>&lt;link&gt;</code>. Лучший способ для больших проектов.</li>
+    <pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </ul>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик попробовал встроенные стили и запутался. 'Отдели магию в свиток!' — посоветовал старейшина."</p>
+  </div>
+
+  <hr>
+
+  <h2>2. Синтаксис CSS <span class="emoji">📜</span></h2>
+  <p>Правило CSS состоит из трёх частей:</p>
+  <ul>
+    <li><strong>Селектор:</strong> Указывает, к чему применить стиль (например, <code>p</code> — ко всем параграфам).</li>
+    <li><strong>Свойство:</strong> Что меняем (например, <code>color</code> — цвет текста).</li>
+    <li><strong>Значение:</strong> Как меняем (например, <code>blue</code> — синий).</li>
+  </ul>
+  <pre><code>p {
+  color: blue;
+  font-size: 16px;
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  <p>Комментарии в CSS пишутся так: <code>/* это комментарий */</code>. Они не влияют на код, но помогают его понять.</p>
+
+  <hr>
+
+  <h2>3. Селекторы <span class="emoji">🎯</span></h2>
+  <p>Селекторы — это указатели, которые выбирают элементы для стилизации. Вот основные:</p>
+  <ul>
+    <li><strong>Тег:</strong> Применяет стиль ко всем элементам тега. Например, <code>h1 { color: red; }</code> красит все заголовки первого уровня в красный.</li>
+    <li><strong>Класс:</strong> Начинается с точки, например, <code>.warning { color: orange; }</code>. Применяется к элементам с атрибутом <code>class="warning"</code>.</li>
+    <li><strong>ID:</strong> Начинается с #, например, <code>#header { background: gray; }</code>. Уникален для одного элемента с <code>id="header"</code>.</li>
+    <li><strong>Универсальный (*):</strong> <code>* { margin: 0; }</code> — применяет стиль ко всем элементам.</li>
+    <li><strong>Группировка:</strong> <code>h1, h2, p { font-size: 18px; }</code> — стиль для нескольких селекторов.</li>
+  </ul>
+  <pre><code>.magic-text {
+  color: purple;
+  font-weight: bold;
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Маг выбрал <code>*</code> и окрасил всю Пустоту в зелёный. 'Точнее целься!' — рассмеялся старейшина."</p>
+  </div>
+
+  <hr>
+
+  <h2>4. Базовые свойства стилей <span class="emoji">🎨</span></h2>
+  <p>Вот несколько заклинаний для начала:</p>
+  <ul>
+    <li><strong>Цвет текста:</strong> <code>color: red;</code> или <code>color: #ff0000;</code> (hex-код).</li>
+    <li><strong>Фон:</strong> <code>background-color: black;</code> или <code>background-image: url('image.jpg');</code>.</li>
+    <li><strong>Размер шрифта:</strong> <code>font-size: 20px;</code>.</li>
+    <li><strong>Толщина шрифта:</strong> <code>font-weight: bold;</code> или числа (100–900).</li>
+    <li><strong>Выравнивание текста:</strong> <code>text-align: center;</code> (left, right, justify).</li>
+  </ul>
+
+  <h3>Единицы измерения</h3>
+  <p>Размеры в CSS задаются в разных единицах:</p>
+  <ul>
+    <li><strong>Абсолютные:</strong> <code>px</code> (пиксели), <code>pt</code> (пункты), <code>cm</code> (сантиметры).</li>
+    <li><strong>Относительные:</strong> <code>%</code> (проценты от родителя), <code>em</code> (от размера шрифта родителя), <code>rem</code> (от корневого шрифта), <code>vw/vh</code> (проценты от ширины/высоты экрана).</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. Практика: Твой первый стилизованный свиток <span class="emoji">🛠️</span></h2>
+  <div class="task">
+    <p><strong>Задание:</strong> Создай страницу с:</p>
+    <ul>
+      <li>Заголовком (h1) красного цвета, выровненным по центру.</li>
+      <li>Параграфом с синим текстом и размером шрифта 18px.</li>
+      <li>Фоном страницы светло-серого цвета.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Мой первый CSS&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: red;
+      text-align: center;
+    }
+    p {
+      color: blue;
+      font-size: 18px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Добро пожаловать в CSS!&lt;/h1&gt;
+  &lt;p&gt;Это мой первый стилизованный текст.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твой свиток засиял красками. 'Первое заклинание готово!' — похвалил старейшина."</p>
+  </div>
+
+  <hr>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>

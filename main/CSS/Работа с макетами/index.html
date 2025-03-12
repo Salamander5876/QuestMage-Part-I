@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с макетами: Flexbox и Grid</title>
+  <style>
+    /* Общие стили страницы */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3, h4 {
+      color: #f8c291;
+    }
+    p, li {
+      font-size: 1rem;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .section {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .demo-container {
+      margin: 20px 0;
+      padding: 20px;
+      border: 2px dashed #95f891;
+      border-radius: 10px;
+    }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+    details { margin: 10px 0; }
+    summary { cursor: pointer; color: #f8c291; }
+  </style>
+</head>
+<body>
+
+  <h1>Работа с макетами: Flexbox и Grid <span class="emoji">🚀</span></h1>
+  <p>В этой лекции мы подробно разберём два мощных инструмента для создания макетов — Flexbox и CSS Grid. Мы объясним их основные свойства, покажем примеры кода и реальные демонстрации работы макетов. Материал написан простым и понятным языком, чтобы даже начинающие могли легко освоить эти технологии.</p>
+
+  <hr>
+
+  <h2>1. Flexbox: Теория и примеры <span class="emoji">🧩</span></h2>
+  <div class="section">
+    <h3>Основные понятия Flexbox</h3>
+    <ul>
+      <li><strong>Контейнер</strong>: Элемент с <code>display: flex;</code> превращается в гибкий контейнер, где все дочерние элементы располагаются по заданным правилам.</li>
+      <li><strong>Основная ось (main axis)</strong>: Направление, в котором располагаются элементы (по умолчанию — горизонтально).</li>
+      <li><strong>Поперечная ось (cross axis)</strong>: Ось, перпендикулярная основной (обычно вертикальная).</li>
+    </ul>
+    <p>Ключевые свойства контейнера:</p>
+    <ul>
+      <li><code>flex-direction</code> — определяет направление элементов (<code>row</code>, <code>column</code>, <code>row-reverse</code>, <code>column-reverse</code>).</li>
+      <li><code>justify-content</code> — распределяет элементы вдоль основной оси (<code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>).</li>
+      <li><code>align-items</code> — выравнивание по поперечной оси (<code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>stretch</code>).</li>
+      <li><code>flex-wrap</code> — позволяет элементам переноситься на новую строку (<code>nowrap</code> или <code>wrap</code>).</li>
+    </ul>
+  </div>
+
+  <h3>Пример работы Flexbox</h3>
+  <p>Ниже приведён пример базового макета на Flexbox. При изменении размеров окна браузера элементы автоматически перераспределяются.</p>
+  <!-- Демонстрация Flexbox -->
+  <div class="demo-container" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+    <div style="background: #7826e3; padding: 20px; margin: 10px; color: white;">Блок 1</div>
+    <div style="background: #f8c291; padding: 20px; margin: 10px; color: #1e1e2f;">Блок 2</div>
+    <div style="background: #62e326; padding: 20px; margin: 10px; color: #1e1e2f;">Блок 3</div>
+    <div style="background: #2d2d44; padding: 20px; margin: 10px; color: #f8c291;">Блок 4</div>
+  </div>
+  <pre><code>&lt;div style="display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap;"&gt;
+  &lt;div&gt;Блок 1&lt;/div&gt;
+  &lt;div&gt;Блок 2&lt;/div&gt;
+  &lt;div&gt;Блок 3&lt;/div&gt;
+  &lt;div&gt;Блок 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <div class="section">
+    <h3>Углублённое изучение Flexbox-свойств</h3>
+    <ul>
+      <li><strong>flex-grow</strong>: Определяет, насколько элемент может увеличиваться, заполняя свободное пространство. Пример: <code>flex: 1;</code> распределяет все элементы поровну.</li>
+      <li><strong>flex-shrink</strong>: Задает, как элемент сжимается при недостатке места. Значение <code>1</code> означает, что элемент сжимается пропорционально.</li>
+      <li><strong>flex-basis</strong>: Устанавливает начальный размер элемента до распределения оставшегося пространства. Пример: <code>flex-basis: 200px;</code>.</li>
+      <li><strong>flex</strong>: Краткая запись для <code>flex-grow</code>, <code>flex-shrink</code> и <code>flex-basis</code>. Пример: <code>flex: 1 1 200px;</code>.</li>
+    </ul>
+    <p>Пример ниже демонстрирует, как изменяются размеры блоков при использовании разных значений свойства <code>flex</code>:</p>
+    <!-- Пример распределения элементов с разными значениями flex -->
+    <div class="demo-container" style="display: flex;">
+      <div style="background: #7826e3; padding: 20px; margin: 10px; color: white; flex: 1;">Элемент с flex: 1</div>
+      <div style="background: #f8c291; padding: 20px; margin: 10px; color: #1e1e2f; flex: 2;">Элемент с flex: 2</div>
+      <div style="background: #62e326; padding: 20px; margin: 10px; color: #1e1e2f; flex: 1;">Элемент с flex: 1</div>
+    </div>
+    <pre><code>&lt;div style="display: flex;"&gt;
+  &lt;div style="flex: 1;"&gt;Элемент с flex: 1&lt;/div&gt;
+  &lt;div style="flex: 2;"&gt;Элемент с flex: 2&lt;/div&gt;
+  &lt;div style="flex: 1;"&gt;Элемент с flex: 1&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+
+  <hr>
+
+  <h2>2. CSS Grid: Теория и примеры <span class="emoji">🗺️</span></h2>
+  <div class="section">
+    <h3>Основные понятия CSS Grid</h3>
+    <ul>
+      <li><strong>Контейнер</strong>: Элемент с <code>display: grid;</code> становится сеткой, в которой можно управлять строками и колонками.</li>
+      <li><strong>grid-template-columns</strong> и <strong>grid-template-rows</strong>: Определяют число и размеры колонок и строк. Например, <code>repeat(3, 1fr)</code> создаёт три равные колонки.</li>
+      <li><strong>gap</strong>: Устанавливает промежутки между ячейками сетки.</li>
+      <li><strong>grid-area</strong>: Позволяет именовать области для удобного позиционирования элементов внутри сетки.</li>
+      <li><strong>repeat()</strong>: Функция, упрощающая создание повторяющихся шаблонов, например, <code>repeat(3, 1fr)</code>.</li>
+    </ul>
+  </div>
+
+  <h3>Пример работы CSS Grid</h3>
+  <p>Ниже приведён пример простой сетки с тремя колонками и двумя строками. При изменении ширины окна браузера макет остаётся адаптивным.</p>
+  <!-- Демонстрация CSS Grid -->
+  <div class="demo-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+    <div style="background: #7826e3; padding: 20px; color: white; text-align: center;">1</div>
+    <div style="background: #f8c291; padding: 20px; color: #1e1e2f; text-align: center;">2</div>
+    <div style="background: #62e326; padding: 20px; color: #1e1e2f; text-align: center;">3</div>
+    <div style="background: #2d2d44; padding: 20px; color: #f8c291; text-align: center;">4</div>
+    <div style="background: #95f891; padding: 20px; color: #1e1e2f; text-align: center;">5</div>
+    <div style="background: #f8c291; padding: 20px; color: #1e1e2f; text-align: center;">6</div>
+  </div>
+  <pre><code>&lt;div style="display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 10px;"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  &lt;div&gt;4&lt;/div&gt;
+  &lt;div&gt;5&lt;/div&gt;
+  &lt;div&gt;6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <div class="section">
+    <h3>Углублённое изучение CSS Grid-свойств</h3>
+    <ul>
+      <li><strong>grid-auto-rows</strong> и <strong>grid-auto-columns</strong>: Определяют размеры автоматически добавляемых строк и колонок.</li>
+      <li><strong>grid-auto-flow</strong>: Задает направление автоматического размещения элементов (<code>row</code> или <code>column</code>).</li>
+      <li><strong>grid-template-areas</strong>: Позволяет задавать именованные области для простого позиционирования. Пример:
+        <br>
+        <code>"header header" "sidebar content"</code>
+      </li>
+      <li><strong>minmax()</strong>: Функция для установки минимального и максимального размера ячейки. Пример: <code>minmax(100px, 1fr)</code>.</li>
+    </ul>
+    <p>Ниже приведён пример сложного макета с именованными областями:</p>
+    <!-- Продвинутый пример CSS Grid -->
+    <div class="demo-container" style="display: grid;
+         grid-template-columns: 1fr 2fr;
+         grid-template-rows: auto auto;
+         gap: 10px;
+         grid-template-areas: 'header header'
+                              'sidebar content';">
+      <div style="background: #7826e3; padding: 20px; color: white; grid-area: header; text-align: center;">Header</div>
+      <div style="background: #f8c291; padding: 20px; color: #1e1e2f; grid-area: sidebar; text-align: center;">Sidebar</div>
+      <div style="background: #62e326; padding: 20px; color: #1e1e2f; grid-area: content; text-align: center;">Content</div>
+    </div>
+    <pre><code>&lt;div style="display: grid;
+     grid-template-columns: 1fr 2fr;
+     grid-template-rows: auto auto;
+     gap: 10px;
+     grid-template-areas: 'header header'
+                          'sidebar content';"&gt;
+  &lt;div style="grid-area: header;"&gt;Header&lt;/div&gt;
+  &lt;div style="grid-area: sidebar;"&gt;Sidebar&lt;/div&gt;
+  &lt;div style="grid-area: content;"&gt;Content&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+
+  <hr>
+
+  <h2>3. Онлайн-генераторы и инструменты <span class="emoji">🔧</span></h2>
+  <div class="section">
+    <p>Чтобы ускорить процесс создания макетов, можно использовать следующие инструменты:</p>
+    <ul>
+      <li><a href="https://cssgrid-generator.netlify.app/" target="_blank">CSS Grid Generator</a> — визуальное создание сеток с мгновенным просмотром результата и получением готового кода.</li>
+      <li><a href="https://www.flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> — игровая платформа для изучения Flexbox через интерактивные задания.</li>
+      <li><a href="https://codepen.io/" target="_blank">CodePen</a> — онлайн-редактор для экспериментов с HTML, CSS и JavaScript.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <h2>Заключение</h2>
+  <p>Теперь вы получили подробное представление о том, как работают Flexbox и CSS Grid. Мы разобрали основные свойства, рассмотрели примеры кода и реальные демонстрации работы макетов. Экспериментируйте, комбинируйте различные свойства и создавайте уникальные адаптивные раскладки для своих проектов!</p>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Код скопирован!'));
+    }
+  </script>
+</body>
+</html>

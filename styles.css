@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Cattedrale';
-  src: url('Cattedrale [RUS by penka220] Regular.ttf') format('truetype');
+  src: url('alagard-12px-unicode.ttf') format('truetype');
 }
 
 @font-face {
@@ -289,7 +289,7 @@ h1 {
 
 footer {
   text-align: center;
-  font-family: 'Cattedrale', serif;
+  font-family: 'EpilepsySans', serif;
   padding: 10px;
   background-color: #2d2d44;
   border-top: 2px solid #4f4f579c;
