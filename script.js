@@ -1,20 +1,95 @@
 // Обновленный массив курсов с номерами шагов
 const courses = [
-  { step: 1, title: "Введение в HTML", description: "Основа веб-страниц", link: "main/HTML/Введение в HTML/index.html" },
-  { step: 2, title: "Элементы", description: "HTML элементы: Магия блоков", link: "main/HTML/HTML-элементы подробно/index.html" },
-  { step: 3, title: "Семантика", description: "Семантический HTML:Теги описывающие содержание", link: "main/HTML/Семантический HTML/index.html" },
-  { step: 4, title: "Продвинутый уровень", description: "Магия следующего уровня", link: "main/HTML/Продвинутые возможности HTML/index.html" },
-  { step: 5, title: "Практика по HTML", description: "Реши задачи для закрепления матерьяла", link: "main/HTML/практики HTML/index.html" },
-  { step: 6, title: "Вся основа HTML", description: "Основы HTML: Магию разметки", link: "main/HTML/theoryHTML/index.html" },
-  { step: 7, title: "Введение в CSS", description: "Первые заклинания стилей", link: "main/CSS/Основы CSS Первые заклинания стилей/index.html" },
-  { step: 8, title: "Стена", description: "Блоки и позиционирование", link: "main/CSS/Работа с блоками и позиционированием/index.html" },
-  { step: 9, title: "Работа с макетами", description: "Flexbox и Grid", link: "main/CSS/Работа с макетами/index.html" },
-  { step: 10, title: "Адаптивность", description: "Медиа-запросы и мобильная версия", link: "main/CSS/Адаптивность и медиа-запросы/index.html" },
-  //{ step: 7, title: "Теория: Основы CSS", description: "Изучите основы CSS: Магия стилей", link: "main/CSS/theoryCSS/index.html" },
-
-  { step: 10, title: "Вся основа CSS", description: "Изучите основы CSS: Магия стилей", link: "main/CSS/theoryCSS/index.html" },
-  { step: 11, title: "Теория: Основы JS", description: "Изучите основы JavaScript в магической библиотеке", link: "main/JS/theoryJS/index.html" },
-  { step: 12, title: "Квест в катакомбах", description: "Начни своё приключение с основ JavaScript", link: "main/JS/quest1/index.html" },
+  { 
+    step: "I", 
+    title: "Основы HTML", 
+    description: "Расшифровка древних символов цифрового мира",
+    link: "main/HTML/Введение в HTML/index.html"
+  },
+  { 
+    step: "II", 
+    title: "Архитектура Теней", 
+    description: "Создание фундамента из магических блоков",
+    link: "main/HTML/HTML-элементы подробно/index.html"
+  },
+  { 
+    step: "III", 
+    title: "Язык Духов Содержания", 
+    description: "Семантические заклинания для общения с богами SEO",
+    link: "main/HTML/Семантический HTML/index.html"
+  },
+  { 
+    step: "IV", 
+    title: "Запретные HTML", 
+    description: "Тёмные искусства скрытых возможностей",
+    link: "main/HTML/Продвинутые возможности HTML/index.html"
+  },
+  { 
+    step: "V", 
+    title: "Испытание Пустоты", 
+    description: "Битва с демонами неправильной вложенности",
+    link: "main/HTML/практики HTML/index.html"
+  },
+  { 
+    step: "VI", 
+    title: "Гримуар HTML-Мага", 
+    description: "Полный кодекс искусства разметки",
+    link: "main/HTML/theoryHTML/index.html"
+  },
+  { 
+    step: "VII", 
+    title: "Визуальная Алхимия", 
+    description: "Первые опыты преобразования вещества в стили",
+    link: "main/CSS/Основы CSS Первые заклинания стилей/index.html"
+  },
+  { 
+    step: "VIII", 
+    title: "Хоровод Блоков", 
+    description: "Магия управления пространственными иллюзиями",
+    link: "main/CSS/Работа с блоками и позиционированием/index.html"
+  },
+  { 
+    step: "IX", 
+    title: "Танцующие Блоки", 
+    description: "Сакральная геометрия веб-макетов Flexbox и Grid",
+    link: "main/CSS/Работа с макетами/index.html"
+  },
+  { 
+    step: "X", 
+    title: "Адаптивная Магия", 
+    description: "Искусство отражений для разных измерений",
+    link: "main/CSS/Адаптивность и медиа-запросы/index.html"
+  },
+  { 
+    step: "XI", 
+    title: "Каллиграфия Стихий", 
+    description: "Искусство оживления символов",
+    link: "main/CSS/Стилизация текста и шрифтов/index.html"
+  },
+  { 
+    step: "XII", 
+    title: "Хрономантия CSS", 
+    description: "Заклинания времени и пространственных искажений",
+    link: "main/CSS/Анимации и переходы/index.html"
+  },
+  { 
+    step: "XIII", 
+    title: "Свиток Алхимика", 
+    description: "Эзотерические знания визуальной CSS",
+    link: "main/CSS/theoryCSS/index.html"
+  },
+  { 
+    step: "XIV", 
+    title: "Манускрипт демона", 
+    description: "Расшифровка языка демонов интерактивности JavaScript",
+    link: "main/JS/theoryJS/index.html"
+  },
+  { 
+    step: "XV", 
+    title: "Квест в катакомбах", 
+    description: "Начни своё приключение с основ JavaScript",
+    link: "main/JS/quest1/index.html"
+  }
 ];
 
 const grid = document.querySelector('.grid');
