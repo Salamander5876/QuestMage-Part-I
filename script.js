@@ -142,7 +142,7 @@ function createParticle(x, y) {
   const particle = document.createElement('div');
   particle.classList.add('particle');
   particle.style.left = `${x}px`;
-  particle.style.top = `${y}px`;
+  particle.style.top = `${y + window.scrollY}px`; // Добавляем смещение прокрутки
   particle.style.background = Math.random() > 0.5 ? '#f8c291' : '#6c5ce7';
   particle.style.width = `${Math.random() * 4 + 3}px`;
   particle.style.height = particle.style.width;
@@ -187,5 +187,4 @@ document.addEventListener('click', (e) => {
   for (let i = 0; i < 5; i++) createParticle(e.clientX, e.clientY);
 });
 
-// Создание фоновых частиц каждые 0.5 секунды
-setInterval(createBgParticle, 10);
+setInterval(createBgParticle, 200);
