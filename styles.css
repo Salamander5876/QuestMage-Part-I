@@ -294,7 +294,7 @@ h1 {
   100% { opacity: 0; transform: scale(0) translate(10px, -10px); }
 }
 
-footer {
+footer { 
   text-align: center;
   font-family: 'EpilepsySans', serif;
   padding: 20px; /* Увеличиваем отступы для лучшего визуального восприятия */
