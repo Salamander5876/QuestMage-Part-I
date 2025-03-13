@@ -92,6 +92,28 @@ const courses = [
   }
 ];
 
+// Массив заклинаний с магией Годжо Сатору и веб-разработкой
+const spells = [
+  "<div class='infinity'>",
+  "</limitless>",
+  "display: domain-expansion;",
+  "position: blue-absolute;",
+  "margin: limitless;",
+  "font-size: six-eyes;",
+  "let barrier = infinity;",
+  "function hollowPurple() {}",
+  "if (cursedEnergy > 0) {}",
+  "querySelector('.domain')",
+  "addEventListener('jujutsu')",
+  "transform: red-reversal;",
+  "opacity: blue-attraction;",
+  "border-radius: infinity;",
+  "<section class='cursed-technique'>",
+  "console.log('Unlimited Void!');",
+  "z-index: six-eyes-max;",
+  "background: purple-hollow;"
+];
+
 const grid = document.querySelector('.grid');
 
 // Создаем блоки курсов с номерами шагов
@@ -142,7 +164,7 @@ function createParticle(x, y) {
   const particle = document.createElement('div');
   particle.classList.add('particle');
   particle.style.left = `${x}px`;
-  particle.style.top = `${y + window.scrollY}px`; // Добавляем смещение прокрутки
+  particle.style.top = `${y + window.scrollY}px`; // Учитываем прокрутку
   particle.style.background = Math.random() > 0.5 ? '#f8c291' : '#6c5ce7';
   particle.style.width = `${Math.random() * 4 + 3}px`;
   particle.style.height = particle.style.width;
@@ -160,6 +182,44 @@ function createBgParticle() {
   particle.style.animationDelay = `${Math.random() * 5}s`;
   particlesContainer.appendChild(particle);
   setTimeout(() => particle.remove(), 5000);
+}
+
+// Фоновые заклинания (появляются только по бокам от .grid)
+function createSpell() {
+  const particlesContainer = document.getElementById('particles');
+  const spell = document.createElement('div');
+  spell.classList.add('spell');
+  spell.textContent = spells[Math.floor(Math.random() * spells.length)];
+
+  // Получаем размеры и положение .grid
+  const gridRect = grid.getBoundingClientRect();
+  const gridLeft = gridRect.left + window.scrollX; // Учитываем горизонтальную прокрутку
+  const gridRight = gridRect.right + window.scrollX;
+  const gridWidth = gridRect.width;
+  const windowWidth = window.innerWidth;
+
+  // Определяем зоны слева и справа от .grid
+  const leftZoneWidth = gridLeft; // Ширина левой зоны
+  const rightZoneWidth = windowWidth - gridRight; // Ширина правой зоны
+  let spellX;
+
+  // Случайно выбираем левую или правую зону
+  if (Math.random() < 0.5 && leftZoneWidth > 0) {
+    // Левая зона
+    spellX = Math.random() * leftZoneWidth;
+  } else if (rightZoneWidth > 0) {
+    // Правая зона
+    spellX = gridRight + Math.random() * rightZoneWidth;
+  } else {
+    // Если зоны слишком узкие, размещаем случайно по всей ширине (запасной вариант)
+    spellX = Math.random() * windowWidth;
+  }
+
+  spell.style.left = `${spellX}px`; // Позиция в пикселях вместо vw
+  spell.style.top = `${Math.random() * 100}vh`; // Случайная высота
+  spell.style.animationDelay = `${Math.random() * 5}s`;
+  particlesContainer.appendChild(spell);
+  setTimeout(() => spell.remove(), 5000);
 }
 
 // Волны от курсора
@@ -187,4 +247,6 @@ document.addEventListener('click', (e) => {
   for (let i = 0; i < 5; i++) createParticle(e.clientX, e.clientY);
 });
 
-setInterval(createBgParticle, 200);
+// Создание фоновых частиц и заклинаний
+setInterval(createBgParticle, 30); // Частицы каждые 0.03 секунды
+setInterval(createSpell, 2000);     // Заклинания каждые 0.5 секунды

@@ -271,7 +271,6 @@ h1 {
   transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
-/* Фоновые частицы */
 .bg-particle {
   position: absolute;
   width: 4px;
@@ -282,10 +281,28 @@ h1 {
   animation: bgParticleFade 5s infinite;
 }
 
+.spell {
+  position: absolute;
+  font-family: 'EpilepsySans', sans-serif;
+  color: #f8c291; /* Исправлено с #f8c391 */
+  font-size: 18px;
+  text-shadow: 0 0 10px rgba(248, 195, 145, 0.322), 0 0 20px rgba(108, 92, 231, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  animation: spellFade 5s ease-in-out forwards;
+}
+
 @keyframes bgParticleFade {
   0% { opacity: 0; transform: scale(0); }
   20% { opacity: 0.5; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.5) translateY(-50px); }
+}
+
+@keyframes spellFade {
+  0% { opacity: 0; transform: scale(0.5) translateY(0); }
+  20% { opacity: 0.8; transform: scale(1) translateY(-20px); }
+  80% { opacity: 0.8; transform: scale(1.1) translateY(-40px); }
+  100% { opacity: 0; transform: scale(0.8) translateY(-60px); }
 }
 
 @keyframes fade {
