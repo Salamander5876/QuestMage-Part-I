@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Основы JavaScript: Магия кода <span class="emoji">✨</span></h1>
+  <p>Юный кодер! Ты вступаешь в мир JavaScript — магии, где строки оживают, числа танцуют, а функции творят чудеса. Давай разберёмся с основами шаг за шагом!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина открыл свиток JavaScript. 'Здесь сила создавать миры!' — сказал он, указав на <code>let</code> и <code>function</code>."</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Переменные и типы данных <span class="emoji">📦</span></h2>
+  <p>Переменные — это как сундуки, куда мы складываем сокровища (данные). А типы данных — это то, что внутри.</p>
+
+  <h3><code>let</code>, <code>const</code>, <code>var</code></h3>
+  <p><code>let</code> — для вещей, которые можно менять. <code>const</code> — для неизменных сокровищ. <code>var</code> — старый способ, лучше забудь!</p>
+  <pre><code>let age = 25; // Можно поменять
+age = 26;
+const name = "Алекс"; // Нельзя менять
+// name = "Катя"; // Ошибка!</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Типы данных</h3>
+  <p>Вот что можно положить в сундук:</p>
+  <ul>
+    <li><code>number</code> — числа: <code>5</code>, <code>3.14</code></li>
+    <li><code>string</code> — текст: <code>"Привет"</code></li>
+    <li><code>boolean</code> — правда/ложь: <code>true</code>, <code>false</code></li>
+    <li><code>null</code> — пустота</li>
+    <li><code>undefined</code> — ничего не положили</li>
+    <li><code>object</code> — сундук с сундуками: <code>{ name: "Алекс" }</code></li>
+    <li><code>array</code> — список: <code>[1, 2, 3]</code></li>
+  </ul>
+  <pre><code>let num = 10;
+let str = "Привет";
+let bool = true;
+let obj = { name: "Алекс" };
+let arr = [1, 2, 3];</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>2. Операторы <span class="emoji">🛠️</span></h2>
+  <p>Операторы — это инструменты для работы с данными.</p>
+
+  <h3>Арифметические</h3>
+  <p>Считаем числа или склеиваем строки:</p>
+  <pre><code>let a = 10;
+let b = 5;
+console.log(a + b); // 15
+console.log(a * b); // 50
+console.log(a % b); // 0</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Сравнения</h3>
+  <p>Проверяем, что больше, что равно:</p>
+  <pre><code>console.log(5 === "5"); // false
+console.log(10 > 5); // true</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Логические</h3>
+  <p>Комбинируем условия:</p>
+  <pre><code>let sun = true;
+let warm = false;
+console.log(sun && warm); // false
+console.log(sun || warm); // true</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Ученик смешал <code>+</code> с числом и строкой. '11' — крикнул он в ужасе, пока старейшина смеялся."</p>
+  </div>
+
+  <hr>
+
+  <h2>3. Условные конструкции <span class="emoji">🚪</span></h2>
+  <p>Это как развилки на пути мага.</p>
+
+  <h3><code>if</code>, <code>else if</code>, <code>else</code></h3>
+  <pre><code>let temp = 20;
+if (temp > 30) {
+  console.log("Жарко");
+} else if (temp > 15) {
+  console.log("Тепло");
+} else {
+  console.log("Холодно");
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3><code>switch</code></h3>
+  <pre><code>let day = "понедельник";
+switch (day) {
+  case "понедельник":
+    console.log("Начало");
+    break;
+  case "пятница":
+    console.log("Конец");
+    break;
+  default:
+    console.log("Обычный день");
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>4. Циклы <span class="emoji">🔄</span></h2>
+  <p>Повторяем действия, пока не надоест.</p>
+
+  <h3><code>for</code>, <code>while</code>, <code>do...while</code></h3>
+  <pre><code>for (let i = 0; i < 3; i++) {
+  console.log(i); // 0, 1, 2
+}
+let j = 0;
+while (j < 3) {
+  console.log(j); // 0, 1, 2
+  j++;
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Методы массивов</h3>
+  <pre><code>let nums = [1, 2, 3];
+nums.forEach(n => console.log(n)); // 1, 2, 3
+let doubled = nums.map(n => n * 2); // [2, 4, 6]</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>5. Функции <span class="emoji">🪄</span></h2>
+  <p>Функции — это заклинания, которые мы вызываем.</p>
+
+  <h3>Объявление и стрелочные</h3>
+  <pre><code>function greet(name) {
+  return "Привет, " + name;
+}
+const greetArrow = (name) => "Привет, " + name;
+console.log(greet("Алекс")); // Привет, Алекс</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>6. Область видимости <span class="emoji">🔒</span></h2>
+  <p>Где живут переменные?</p>
+
+  <h3>Локальная и глобальная</h3>
+  <pre><code>let global = "Я везде";
+function test() {
+  let local = "Я тут";
+  console.log(global); // Я везде
+}
+test();</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Замыкания</h3>
+  <pre><code>function counter() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+const c = counter();
+c(); // 1
+c(); // 2</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>7. Работа с данными <span class="emoji">📚</span></h2>
+
+  <h3>Массивы</h3>
+  <pre><code>let fruits = ["яблоко"];
+fruits.push("банан"); // ["яблоко", "банан"]
+fruits.pop(); // ["яблоко"]</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>Объекты</h3>
+  <pre><code>let person = { name: "Алекс" };
+console.log(person.name); // Алекс
+person.greet = function() {
+  console.log("Привет, " + this.name);
+};
+person.greet(); // Привет, Алекс</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <h3>JSON</h3>
+  <pre><code>let json = '{"name": "Алекс"}';
+let obj = JSON.parse(json);
+console.log(obj.name); // Алекс</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+
+  <hr>
+
+  <h2>8. Практика <span class="emoji">🛠️</span></h2>
+  <div class="task">
+    <p><strong>Задание:</strong> Напиши код, который:</p>
+    <ul>
+      <li>Создаёт массив чисел.</li>
+      <li>Удваивает их с <code>.map</code>.</li>
+      <li>Выводит результат в консоль.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let numbers = [1, 2, 3];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твой код — это магия. Напиши его, и мир JavaScript оживёт!"</p>
+  </div>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Код в свитке!'));
+    }
+  </script>
+</body>
+</html>

@@ -89,6 +89,18 @@ const courses = [
     title: "Квест в катакомбах", 
     description: "Начни своё приключение с основ JavaScript",
     link: "main/JS/quest1/index.html"
+  },
+  { 
+    step: "XVI", 
+    title: "Манускрипт Пробуждения", 
+    description: "Ритуалы чтения и записи",
+    link: "main/JS/Основы JavaScript и работы с файлами/index.html"
+  },
+  { 
+    step: "XVII", 
+    title: "Демоны DOM", 
+    description: "Власть и искусство управления элементами",
+    link: "main/JS/DOM/index.html"
   }
 ];
 

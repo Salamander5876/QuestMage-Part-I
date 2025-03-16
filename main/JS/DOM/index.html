@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продвинутый HTML: Магия DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a { color: #62e326; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task { border-left-color: #f8c291; }
+    .story p, .example p, .task p { margin: 0; }
+    hr { border: 0; height: 1px; background: #7826e3; margin: 20px 0; }
+    .emoji { font-size: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Манускрипт JS: Работа с DOM <span class="emoji">🌟</span></h1>
+  <p>Юный маг! Ты уже освоил основы JS. Теперь пора овладеть магией DOM — заклинаниями, которые оживляют страницы и делают их интерактивными!</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Старейшина открыл древний фолиант. 'DOM — это сердце страницы,' — сказал он, указывая на дерево узлов, оживающее под его пальцами."</p>
+  </div>
+
+  <hr>
+
+  <h2>1. Что такое DOM? <span class="emoji">🌳</span></h2>
+  <p><strong>DOM (Document Object Model)</strong> — это интерфейс, который превращает HTML-документ в дерево объектов, доступных для JavaScript. С помощью DOM ты можешь читать, изменять, добавлять или удалять элементы, делая страницу живой.</p>
+  <ul>
+    <li><strong>Структура:</strong> Корень — <code>&lt;html&gt;</code>, ветви — <code>&lt;head&gt;</code> и <code>&lt;body&gt;</code>, листья — теги, текст, комментарии.</li>
+    <li><strong>Живое обновление:</strong> Изменения через JS сразу отражаются на странице.</li>
+  </ul>
+
+  <div class="example">
+    <p><strong>Пример HTML и его DOM:</strong></p>
+    <pre><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1 id="header"&gt;Заголовок&lt;/h1&gt;
+    &lt;p class="text"&gt;Текст&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p>В DOM это дерево: <code>&lt;body&gt;</code> — родитель, <code>&lt;h1&gt;</code> и <code>&lt;p&gt;</code> — дети.</p>
+  </div>
+
+  <p><strong>Частые ошибки:</strong></p>
+  <ul>
+    <li>Путают HTML (текст) с DOM (объекты).</li>
+    <li>Думают, что узлы — это только элементы, забывая про текст и комментарии.</li>
+  </ul>
+
+  <hr>
+
+  <h2>2. Поиск элементов <span class="emoji">🔍</span></h2>
+  <p>Чтобы управлять страницей, нужно найти её элементы. Вот основные заклинания:</p>
+
+  <h3><code>document.querySelector</code></h3>
+  <p>Находит <strong>первый</strong> элемент по CSS-селектору.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let header = document.querySelector('#header'); // &lt;h1 id="header"&gt;
+header.textContent = 'Новый заголовок';</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3><code>document.getElementById</code></h3>
+  <p>Находит элемент по уникальному <code>id</code>.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let header = document.getElementById('header');
+console.log(header.textContent); // "Заголовок"</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3><code>document.querySelectorAll</code></h3>
+  <p>Возвращает <strong>все</strong> элементы в виде <code>NodeList</code>.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let paragraphs = document.querySelectorAll('p');
+paragraphs.forEach(p => p.style.color = 'red');</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Заметка:</strong> <code>NodeList</code> — не массив, но можно сделать массив через <code>Array.from(paragraphs)</code>.</p>
+  </div>
+
+  <p><strong>Дополнительно:</strong></p>
+  <ul>
+    <li><code>document.getElementsByClassName('class')</code> — по классу.</li>
+    <li><code>document.getElementsByTagName('tag')</code> — по тегу.</li>
+  </ul>
+
+  <p><strong>Частые ошибки:</strong></p>
+  <ul>
+    <li>Ждут все элементы от <code>querySelector</code> (он берёт только первый).</li>
+    <li>Пытаются применить <code>.map()</code> к <code>NodeList</code> без преобразования.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3. Манипуляция элементами <span class="emoji">🛠️</span></h2>
+  <p>Найдя элемент, ты можешь менять его содержимое, стили и структуру.</p>
+
+  <h3>Изменение содержимого</h3>
+  <p><code>.innerHTML</code> — задаёт HTML внутри элемента.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>header.innerHTML = '&lt;strong&gt;Жирный заголовок&lt;/strong&gt;';</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Осторожно:</strong> Небезопасно для ввода пользователей (риск XSS).</p>
+  </div>
+
+  <p><code>.textContent</code> — работает только с текстом.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let p = document.querySelector('.text');
+p.textContent = 'Безопасный текст';</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3>Управление классами</h3>
+  <p><code>.classList</code> — удобный способ работы с классами.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>p.classList.add('highlight');
+p.classList.remove('text');
+p.classList.toggle('active');
+if (p.classList.contains('highlight')) {
+  console.log('Класс есть!');
+}</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3>Создание и удаление</h3>
+  <div class="example">
+    <p><strong>Пример создания:</strong></p>
+    <pre><code>let div = document.createElement('div');
+div.textContent = 'Новый элемент';
+document.body.appendChild(div);</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+  <div class="example">
+    <p><strong>Пример удаления:</strong></p>
+    <pre><code>div.remove();</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <p><strong>Частые ошибки:</strong></p>
+  <ul>
+    <li>Опечатки в именах классов.</li>
+    <li>Забывают, что <code>appendChild</code> перемещает элемент, если он уже есть.</li>
+  </ul>
+
+  <hr>
+
+  <h2>4. События <span class="emoji">⚡</span></h2>
+  <p>События позволяют реагировать на действия пользователя.</p>
+
+  <h3><code>addEventListener</code></h3>
+  <p>Привязывает обработчик к событию.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>let btn = document.querySelector('button');
+btn.addEventListener('click', () => alert('Клик!'));</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3>Популярные события</h3>
+  <ul>
+    <li><code>click</code> — клик мышью.</li>
+    <li><code>input</code> — ввод в поле.</li>
+    <li><code>submit</code> — отправка формы.</li>
+  </ul>
+  <div class="example">
+    <p><strong>Пример формы:</strong></p>
+    <pre><code>let form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('Отправлено!');
+});</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <h3>Делегирование событий</h3>
+  <p>Обрабатывает события дочерних элементов через родителя.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>document.querySelector('ul').addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') {
+    console.log('Клик по:', e.target.textContent);
+  }
+});</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <p><strong>Частые ошибки:</strong></p>
+  <ul>
+    <li>Не используют <code>preventDefault()</code> для отмены стандартного поведения.</li>
+    <li>Не учитывают всплытие событий.</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. Дополнительные заклинания <span class="emoji">🔮</span></h2>
+  <h3>Навигация по DOM</h3>
+  <ul>
+    <li><code>parentNode</code> — родитель.</li>
+    <li><code>children</code> — дети.</li>
+    <li><code>nextElementSibling</code> — следующий элемент.</li>
+  </ul>
+
+  <h3>Стили</h3>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>p.style.backgroundColor = 'yellow';</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <hr>
+
+  <h2>6. Практика: Серьёзные испытания <span class="emoji">🛠️</span></h2>
+
+  <div class="task">
+    <p><strong>Задание 1: Интерактивный список задач</strong></p>
+    <p>Создай поле ввода, кнопку и список <code>&lt;ul&gt;</code>. При нажатии на кнопку добавляй задачу в список. Клик по задаче должен перечёркивать её.</p>
+    <p><strong>Подсказки:</strong></p>
+    <ul>
+      <li>Используй <code>createElement</code> и <code>appendChild</code>.</li>
+      <li>Добавь обработчик на <code>ul</code> с делегированием.</li>
+      <li>Меняй стиль через <code>style.textDecoration</code>.</li>
+    </ul>
+  </div>
+
+  <div class="task">
+    <p><strong>Задание 2: Модальное окно с формой</strong></p>
+    <p>Создай кнопку "Открыть форму", которая показывает <code>&lt;dialog&gt;</code> с полем ввода и кнопкой "Сохранить". При сохранении выводи введённое в консоль и закрывай окно.</p>
+    <p><strong>Подсказки:</strong></p>
+    <ul>
+      <li>Используй <code>showModal()</code> и <code>close()</code>.</li>
+      <li>Обрабатывай событие <code>submit</code> формы.</li>
+      <li>Получай значение через <code>input.value</code>.</li>
+    </ul>
+  </div>
+
+  <div class="task">
+    <p><strong>Задание 3: Фильтр списка</strong></p>
+    <p>Создай список элементов и поле ввода. При вводе текста фильтруй список, показывая только те элементы, которые содержат введённый текст.</p>
+    <p><strong>Подсказки:</strong></p>
+    <ul>
+      <li>Используй <code>querySelectorAll</code> для списка.</li>
+      <li>Слушай событие <code>input</code>.</li>
+      <li>Сравнивай <code>textContent</code> с введённым текстом и скрывай/показывай через <code>style.display</code>.</li>
+    </ul>
+  </div>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твои заклинания DOM заставили Пустоту засиять. Заверши испытания, и станешь мастером магии!"</p>
+  </div>
+
+  <hr>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
+</body>
+</html>
