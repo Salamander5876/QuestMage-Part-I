@@ -101,6 +101,12 @@ const courses = [
     title: "Демоны DOM", 
     description: "Власть и искусство управления элементами",
     link: "main/JS/DOM/index.html"
+  },
+  { 
+    step: "XVIII", 
+    title: "Практика DOM", 
+    description: "откуда взялся этот демон?",
+    link: "main/JS/Practic1/index.html"
   }
 ];
 
