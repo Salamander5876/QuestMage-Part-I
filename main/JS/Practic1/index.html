@@ -266,6 +266,11 @@
   </div>
 
   <hr>
-
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Заклинание в свитке!'));
+    }
+  </script>
 </body>
 </html>
