@@ -107,6 +107,12 @@ const courses = [
     title: "Практика DOM", 
     description: "откуда взялся этот демон?",
     link: "main/JS/Practic1/index.html"
+  },
+  { 
+    step: "XIX", 
+    title: "Поднятие уровня", 
+    description: "Назови своё имя, и пусть мир узнает о твоём восхождении, или брось вызов самому коду",
+    link: "main/JS/Дары JS/index.html"
   }
 ];
 
