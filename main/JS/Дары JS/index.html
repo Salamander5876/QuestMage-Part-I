@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARISE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #a2ee70;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+      position: relative;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    a {
+      color: #62e326;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .story, .example, .task {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #7826e3;
+    }
+    .example, .task {
+      border-left-color: #f8c291;
+    }
+    .story p, .example p, .task p {
+      margin: 0;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #7826e3;
+      margin: 20px 0;
+    }
+    .emoji {
+      font-size: 1.2em;
+    }
+    /* Стили для элементов управления */
+    .player, .slider, .controls, form {
+      margin: 20px 0;
+    }
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, button {
+      padding: 5px;
+      margin-bottom: 10px;
+      background-color: #2d2d44;
+      color: #e0e0e0;
+      border: 1px solid #7826e3;
+      border-radius: 3px;
+    }
+    button {
+      background-color: #7826e3;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5a1db3;
+    }
+    #result {
+      font-weight: bold;
+      color: #f8c291;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Манускрипт JS: LEVEL UP! <span class="emoji">✨</span></h1>
+  <p>Маг! Перед тобой снова открывается портал в мир JavaScript, где ты сможешь создать три артефакта: музыкальный плеер, слайдер и калькулятор ипотеки. Каждый из них — это ключ к разным граням интерактивности, от мелодий, оживающих по твоей воле, до расчётов, предсказывающих твоё будущее. Готов ли ты отправиться в это путешествие и оставить свой след в коде?</p>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "В зале Академии зажглись три магических кристалла. Первый пульсировал мелодией, второй мерцал сменяющимися образами, а третий сверкал цифрами судьбы. Преподаватель-юморист взглянул на тебя и молвил: '私は間違っていません...この全世界は間違っています。' Согласен?"</p>
+  </div>
+
+  <hr>
+
+  1. Музыкальный Плеер <span class="emoji">🎶</span>
+  <p>Музыкальный плеер — это артефакт, который позволяет управлять звуками: воспроизводить их, останавливать и переключать треки. Давай создадим его шаг за шагом!</p>
+
+  Шаг 1: HTML-структура
+  <p>Сначала создадим основу — контейнер с элементом <code>&lt;audio&gt;</code> и кнопками управления.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!-- Контейнер для плеера --&gt;
+&lt;div class="player"&gt;
+  &lt;audio id="audio" src="path/to/track1.mp3"&gt;&lt;/audio&gt; &lt;!-- Элемент для воспроизведения звука --&gt;
+  &lt;button id="play"&gt;Играть&lt;/button&gt; &lt;!-- Кнопка воспроизведения --&gt;
+  &lt;button id="pause"&gt;Пауза&lt;/button&gt; &lt;!-- Кнопка паузы --&gt;
+  &lt;button id="next"&gt;Дальше&lt;/button&gt; &lt;!-- Кнопка следующего трека --&gt;
+  &lt;button id="prev"&gt;Назад&lt;/button&gt; &lt;!-- Кнопка предыдущего трека --&gt;
+&lt;/div&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Заметка:</strong> Замени <code>path/to/track1.mp3</code> на реальный путь к аудиофайлу.</p>
+  </div>
+
+  Шаг 2: JavaScript-магия
+  <p>Теперь добавим логику для управления плеером.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;script&gt;
+  // Получаем элементы DOM
+  const audio = document.getElementById('audio'); // Элемент audio для воспроизведения
+  const playBtn = document.getElementById('play'); // Кнопка воспроизведения
+  const pauseBtn = document.getElementById('pause'); // Кнопка паузы
+  const nextBtn = document.getElementById('next'); // Кнопка следующего трека
+  const prevBtn = document.getElementById('prev'); // Кнопка предыдущего трека
+  
+  // Массив треков (замените пути на свои файлы)
+  const tracks = ['path/to/track1.mp3', 'path/to/track2.mp3', 'path/to/track3.mp3'];
+  let currentTrack = 0; // Индекс текущего трека
+  
+  // Воспроизведение при нажатии на Play
+  playBtn.addEventListener('click', () => audio.play());
+  
+  // Пауза при нажатии на Pause
+  pauseBtn.addEventListener('click', () => audio.pause());
+  
+  // Переключение на следующий трек
+  nextBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack + 1) % tracks.length; // Циклически увеличиваем индекс
+    audio.src = tracks[currentTrack]; // Меняем источник звука
+    audio.play(); // Запускаем воспроизведение
+  });
+  
+  // Переключение на предыдущий трек
+  prevBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length; // Циклически уменьшаем индекс
+    audio.src = tracks[currentTrack]; // Меняем источник звука
+    audio.play(); // Запускаем воспроизведение
+  });
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Объяснение:</strong></p>
+    - Массив <code>tracks</code> хранит пути к аудиофайлам.
+    - Переменная <code>currentTrack</code> отслеживает текущий трек.
+    - Кнопки меняют источник звука и управляют воспроизведением.
+  </div>
+
+   Шаг 3: Задание
+  <p>Добавь CSS для красивого оформления кнопок и выравнивания.</p>
+
+  <hr>
+
+   2. Слайдер <span class="emoji">📸</span>
+  <p>Слайдер — это артефакт, который показывает изображения или текст, переключая их по твоему желанию.</p>
+
+   Шаг 1: HTML-структура
+  <p>Создадим контейнер для слайдов и кнопки для переключения.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!-- Контейнер для слайдов --&gt;
+&lt;div class="slider"&gt;
+  &lt;div class="slide"&gt;Слайд 1&lt;/div&gt; &lt;!-- Первый слайд --&gt;
+  &lt;div class="slide"&gt;Слайд 2&lt;/div&gt; &lt;!-- Второй слайд --&gt;
+  &lt;div class="slide"&gt;Слайд 3&lt;/div&gt; &lt;!-- Третий слайд --&gt;
+&lt;/div&gt;
+&lt;button id="prevSlide"&gt;Назад&lt;/button&gt; &lt;!-- Кнопка "Назад" --&gt;
+&lt;button id="nextSlide"&gt;Вперёд&lt;/button&gt; &lt;!-- Кнопка "Вперёд" --&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+   Шаг 2: JavaScript-магия
+  <p>Добавим логику для переключения слайдов.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;script&gt;
+  // Получаем все слайды и кнопки
+  const slides = document.querySelectorAll('.slide'); // Все элементы с классом slide
+  const prevBtn = document.getElementById('prevSlide'); // Кнопка "Назад"
+  const nextBtn = document.getElementById('nextSlide'); // Кнопка "Вперёд"
+  let current = 0; // Индекс текущего слайда
+  
+  // Функция для показа слайда по индексу
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index); // Показываем только текущий слайд
+    });
+  }
+  
+  showSlide(current); // Показываем первый слайд при загрузке
+  
+  // Переключение на следующий слайд
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % slides.length; // Циклически увеличиваем индекс
+    showSlide(current); // Показываем новый слайд
+  });
+  
+  // Переключение на предыдущий слайд
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length; // Циклически уменьшаем индекс
+    showSlide(current); // Показываем новый слайд
+  });
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Объяснение:</strong></p>
+    - Функция <code>showSlide</code> управляет видимостью слайдов через класс <code>active</code>.
+    - Кнопки изменяют индекс и вызывают <code>showSlide</code>.
+  </div>
+
+   Шаг 3: Стилизация
+  <p>Настрой CSS, чтобы скрыть неактивные слайды и оформить кнопки.</p>
+
+  <hr>
+
+   3. Калькулятор Ипотеки Душ<span class="emoji">💰</span>
+  <p>Калькулятор ипотеки поможет рассчитать ежемесячный платёж по кредиту за души.</p>
+
+   Шаг 1: HTML-структура
+  <p>Создадим форму для ввода данных и место для вывода результата.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;!-- Форма для ввода данных --&gt;
+&lt;form id="mortgageForm"&gt;
+  &lt;label&gt;Стоимость недвижимости (₽):&lt;/label&gt;
+  &lt;input type="number" id="propertyPrice" min="0" required&gt; &lt;!-- Поле для стоимости --&gt;
+  &lt;label&gt;Первоначальный взнос (₽):&lt;/label&gt;
+  &lt;input type="number" id="downPayment" min="0" required&gt; &lt;!-- Поле для взноса --&gt;
+  &lt;label&gt;Срок кредита (лет):&lt;/label&gt;
+  &lt;input type="number" id="loanTerm" min="1" required&gt; &lt;!-- Поле для срока --&gt;
+  &lt;label&gt;Процентная ставка (% в год):&lt;/label&gt;
+  &lt;input type="number" id="interestRate" min="0" step="0.1" required&gt; &lt;!-- Поле для ставки --&gt;
+  &lt;button type="button" onclick="calculateMortgage()"&gt;Рассчитать&lt;/button&gt; &lt;!-- Кнопка расчёта --&gt;
+&lt;/form&gt;
+&lt;p id="result"&gt;&lt;/p&gt; &lt;!-- Место для вывода результата --&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+   Шаг 2: JavaScript-магия
+  <p>Добавим логику для расчёта платежа.</p>
+  <div class="example">
+    <p><strong>Пример:</strong></p>
+    <pre><code>&lt;script&gt;
+  // Функция расчёта ипотечного платежа
+  function calculateMortgage() {
+    const propertyPrice = parseFloat(document.getElementById("propertyPrice").value); // Стоимость недвижимости
+    const downPayment = parseFloat(document.getElementById("downPayment").value); // Первоначальный взнос
+    const loanTerm = parseInt(document.getElementById("loanTerm").value); // Срок кредита в годах
+    const interestRate = parseFloat(document.getElementById("interestRate").value); // Годовая процентная ставка
+    
+    // Проверяем корректность данных
+    if (isNaN(propertyPrice) || isNaN(downPayment) || isNaN(loanTerm) || isNaN(interestRate)) {
+      document.getElementById("result").innerText = "Пожалуйста, заполните все поля корректно!";
+      return;
+    }
+    
+    const loanAmount = propertyPrice - downPayment; // Сумма кредита
+    const monthlyInterestRate = (interestRate / 100) / 12; // Месячная ставка
+    const numberOfPayments = loanTerm * 12; // Количество платежей
+    
+    // Формула аннуитетного платежа
+    const payment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                   (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+    
+    // Выводим результат
+    if (isNaN(payment) || payment <= 0) {
+      document.getElementById("result").innerText = "Ошибка в расчётах. Проверьте данные!";
+    } else {
+      document.getElementById("result").innerText = `Ежемесячный платёж: ${payment.toFixed(2)} ₽`;
+    }
+  }
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+    <p><strong>Объяснение:</strong></p>
+    - Собираем данные из формы.
+    - Используем формулу аннуитета для расчёта.
+    - Проверяем ошибки и выводим результат.
+  </div>
+
+   Шаг 3: Стилизация
+  <p>Оформи форму через CSS для удобства использования.</p>
+
+  <hr>
+
+   Полные примеры для копирования
+  <p>Вот полные примеры кода с комментариями для каждого артефакта.</p>
+
+   1. Музыкальный Плеер
+  <div class="example">
+    <pre><code>&lt;!-- HTML-структура плеера --&gt;
+&lt;div class="player"&gt;
+  &lt;audio id="audio" src="path/to/track1.mp3"&gt;&lt;/audio&gt; &lt;!-- Элемент для воспроизведения звука --&gt;
+  &lt;button id="play"&gt;Играть&lt;/button&gt; &lt;!-- Кнопка воспроизведения --&gt;
+  &lt;button id="pause"&gt;Пауза&lt;/button&gt; &lt;!-- Кнопка паузы --&gt;
+  &lt;button id="next"&gt;Дальше&lt;/button&gt; &lt;!-- Кнопка следующего трека --&gt;
+  &lt;button id="prev"&gt;Назад&lt;/button&gt; &lt;!-- Кнопка предыдущего трека --&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  // Получаем элементы DOM
+  const audio = document.getElementById('audio'); // Элемент audio для воспроизведения
+  const playBtn = document.getElementById('play'); // Кнопка воспроизведения
+  const pauseBtn = document.getElementById('pause'); // Кнопка паузы
+  const nextBtn = document.getElementById('next'); // Кнопка следующего трека
+  const prevBtn = document.getElementById('prev'); // Кнопка предыдущего трека
+  
+  // Массив треков (замените пути на свои файлы)
+  const tracks = ['path/to/track1.mp3', 'path/to/track2.mp3', 'path/to/track3.mp3'];
+  let currentTrack = 0; // Индекс текущего трека
+  
+  // Воспроизведение при нажатии на Play
+  playBtn.addEventListener('click', () => audio.play());
+  
+  // Пауза при нажатии на Pause
+  pauseBtn.addEventListener('click', () => audio.pause());
+  
+  // Переключение на следующий трек
+  nextBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack + 1) % tracks.length; // Циклически увеличиваем индекс
+    audio.src = tracks[currentTrack]; // Меняем источник звука
+    audio.play(); // Запускаем воспроизведение
+  });
+  
+  // Переключение на предыдущий трек
+  prevBtn.addEventListener('click', () => {
+    currentTrack = (currentTrack - 1 + tracks.length) % tracks.length; // Циклически уменьшаем индекс
+    audio.src = tracks[currentTrack]; // Меняем источник звука
+    audio.play(); // Запускаем воспроизведение
+  });
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+   2. Слайдер
+  <div class="example">
+    <pre><code>&lt;!-- HTML-структура слайдера --&gt;
+&lt;div class="slider"&gt;
+  &lt;div class="slide"&gt;Слайд 1&lt;/div&gt; &lt;!-- Первый слайд --&gt;
+  &lt;div class="slide"&gt;Слайд 2&lt;/div&gt; &lt;!-- Второй слайд --&gt;
+  &lt;div class="slide"&gt;Слайд 3&lt;/div&gt; &lt;!-- Третий слайд --&gt;
+&lt;/div&gt;
+&lt;button id="prevSlide"&gt;Назад&lt;/button&gt; &lt;!-- Кнопка "Назад" --&gt;
+&lt;button id="nextSlide"&gt;Вперёд&lt;/button&gt; &lt;!-- Кнопка "Вперёд" --&gt;
+
+&lt;script&gt;
+  // Получаем все слайды и кнопки
+  const slides = document.querySelectorAll('.slide'); // Все элементы с классом slide
+  const prevBtn = document.getElementById('prevSlide'); // Кнопка "Назад"
+  const nextBtn = document.getElementById('nextSlide'); // Кнопка "Вперёд"
+  let current = 0; // Индекс текущего слайда
+  
+  // Функция для показа слайда по индексу
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index); // Показываем только текущий слайд
+    });
+  }
+  
+  showSlide(current); // Показываем первый слайд при загрузке
+  
+  // Переключение на следующий слайд
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % slides.length; // Циклически увеличиваем индекс
+    showSlide(current); // Показываем новый слайд
+  });
+  
+  // Переключение на предыдущий слайд
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length; // Циклически уменьшаем индекс
+    showSlide(current); // Показываем новый слайд
+  });
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+   3. Калькулятор Ипотеки
+  <div class="example">
+    <pre><code>&lt;!-- HTML-структура калькулятора --&gt;
+&lt;form id="mortgageForm"&gt;
+  &lt;label&gt;Стоимость недвижимости (₽):&lt;/label&gt;
+  &lt;input type="number" id="propertyPrice" min="0" required&gt; &lt;!-- Поле для стоимости --&gt;
+  &lt;label&gt;Первоначальный взнос (₽):&lt;/label&gt;
+  &lt;input type="number" id="downPayment" min="0" required&gt; &lt;!-- Поле для взноса --&gt;
+  &lt;label&gt;Срок кредита (лет):&lt;/label&gt;
+  &lt;input type="number" id="loanTerm" min="1" required&gt; &lt;!-- Поле для срока --&gt;
+  &lt;label&gt;Процентная ставка (% в год):&lt;/label&gt;
+  &lt;input type="number" id="interestRate" min="0" step="0.1" required&gt; &lt;!-- Поле для ставки --&gt;
+  &lt;button type="button" onclick="calculateMortgage()"&gt;Рассчитать&lt;/button&gt; &lt;!-- Кнопка расчёта --&gt;
+&lt;/form&gt;
+&lt;p id="result"&gt;&lt;/p&gt; &lt;!-- Место для вывода результата --&gt;
+
+&lt;script&gt;
+  // Функция расчёта ипотечного платежа
+  function calculateMortgage() {
+    const propertyPrice = parseFloat(document.getElementById("propertyPrice").value); // Стоимость недвижимости
+    const downPayment = parseFloat(document.getElementById("downPayment").value); // Первоначальный взнос
+    const loanTerm = parseInt(document.getElementById("loanTerm").value); // Срок кредита в годах
+    const interestRate = parseFloat(document.getElementById("interestRate").value); // Годовая процентная ставка
+    
+    // Проверяем корректность данных
+    if (isNaN(propertyPrice) || isNaN(downPayment) || isNaN(loanTerm) || isNaN(interestRate)) {
+      document.getElementById("result").innerText = "Пожалуйста, заполните все поля корректно!";
+      return;
+    }
+    
+    const loanAmount = propertyPrice - downPayment; // Сумма кредита
+    const monthlyInterestRate = (interestRate / 100) / 12; // Месячная ставка
+    const numberOfPayments = loanTerm * 12; // Количество платежей
+    
+    // Формула аннуитетного платежа
+    const payment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                   (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+    
+    // Выводим результат
+    if (isNaN(payment) || payment <= 0) {
+      document.getElementById("result").innerText = "Ошибка в расчётах. Проверьте данные!";
+    } else {
+      document.getElementById("result").innerText = `Ежемесячный платёж: ${payment.toFixed(2)} ₽`;
+    }
+  }
+&lt;/script&gt;</code><button class="copy-button" onclick="copyCode(this)">Скопировать</button></pre>
+  </div>
+
+  <hr>
+
+  <div class="story">
+    <p><span class="emoji">📖</span> <strong>Лор:</strong> "Твоё код засияли ярче, когда ты завершил создание его создание. Преподаватель-юморист кивнул: 'Ты показал что не только способен делать однотипные селекторы в CSS. Теперь иди дальше — мир кода ждёт твоих мелодий и расчётов! В мире кода нет места слабости. Ты либо поднимаешься, либо остаёшься в тени. Выбери своё имя, и пусть оно станет легендой.Ты готов услышать своё имя в эхе консоли? Или предпочитаешь, чтобы код дрожал перед тобой?"</p>
+  </div>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Код скопирован!'));
+    }
+  </script>
+</body>
+</html>
