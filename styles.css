@@ -207,10 +207,10 @@ h1 {
 .grid-item h2 {
   font-family: 'OutlinePixel', sans-serif;
   color: #f8c291;
-  font-size: 1.4em;
-  line-height: 1.3;
+  font-size: 1.2em;
+ 
   margin-bottom: 12px;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .grid-item p {
