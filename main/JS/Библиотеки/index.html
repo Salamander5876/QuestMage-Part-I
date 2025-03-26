@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотеки JavaScript для веб-разработки</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    h1, h2, h3 {
+      color: #f8c291;
+    }
+    a {
+      color: #7826e3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code {
+      background-color: #2d2d44;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: "Courier New", monospace;
+      color: #95f891;
+    }
+    pre {
+      background-color: #2d2d44;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      color: #f8c291;
+    }
+    .copy-button {
+      padding: 10px 20px;
+      background-color: #7826e3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .copy-button:hover {
+      background-color: #5a1db3;
+    }
+    .section, .library-block {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid #f8c291;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #7826e3;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Библиотеки JavaScript для веб-разработки</h1>
+  <p>В этом свитке собраны самые могущественные заклинания (библиотеки) для твоих веб-проектов. Освой их, и станешь настоящим архимагом интерфейсов!</p>
+
+  <!-- Введение -->
+  <div class="section">
+    <h2>Как подключать JavaScript к HTML</h2>
+    <p>Прежде чем использовать сторонние библиотеки, нужно знать, как подключать JavaScript к HTML. Это основа для работы с любым кодом.</p>
+    <p>Используй тег <code>&lt;script&gt;</code> с атрибутом <code>src</code>, чтобы подключить внешний файл:</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Подключение JS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p><strong>Объяснение:</strong></p>
+    <ul>
+      <li>Тег <code>&lt;script&gt;</code> размещается в <code>&lt;body&gt;</code> (обычно в конце).</li>
+      <li>Атрибут <code>src</code> указывает путь к файлу — локальному или через CDN.</li>
+      <li>CDN (Content Delivery Network) — это быстрый способ подключить популярные библиотеки.</li>
+    </ul>
+    <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+  </div>
+
+  <!-- Анимация -->
+  <div class="section">
+    <h2>Библиотеки для анимации</h2>
+
+    <div class="library-block">
+      <h3>GSAP (GreenSock Animation Platform)</h3>
+      <p>Мощная библиотека для создания плавных и производительных анимаций. Работает с CSS, SVG, Canvas и другими элементами.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"&gt;&lt;/script&gt;
+&lt;div id="box" style="width:100px;height:100px;background:red;"&gt;&lt;/div&gt;
+&lt;script&gt;
+  gsap.to("#box", { duration: 2, x: 300, rotation: 360 });
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://greensock.com/gsap/" target="_blank">Официальный сайт GSAP</a></p>
+      <p><strong>Примеры работ:</strong> <a href="https://greensock.com/showcase/" target="_blank">GSAP Showcase</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+
+    <div class="library-block">
+      <h3>Anime.js</h3>
+      <p>Лёгкая библиотека с простым API для анимации CSS, SVG, DOM-атрибутов и JavaScript-объектов.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"&gt;&lt;/script&gt;
+&lt;div id="box" style="width:100px;height:100px;background:blue;"&gt;&lt;/div&gt;
+&lt;script&gt;
+  anime({
+    targets: '#box',
+    translateX: 250,
+    rotate: '1turn',
+    backgroundColor: '#FFF',
+    duration: 800
+  });
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://animejs.com/" target="_blank">Официальный сайт Anime.js</a></p>
+      <p><strong>Примеры работ:</strong> <a href="https://animejs.com/" target="_blank">Демо на сайте</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+  </div>
+
+  <!-- Математика -->
+  <div class="section">
+    <h2>Библиотеки для математики</h2>
+
+    <div class="library-block">
+      <h3>Math.js</h3>
+      <p>Расширенная библиотека для математических вычислений. Поддерживает числа, матрицы, единицы измерения и т.д.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const result = math.evaluate('sqrt(16) + sin(pi / 2)');
+  console.log(result); // 5
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://mathjs.org/" target="_blank">Официальный сайт Math.js</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+
+    <div class="library-block">
+      <h3>D3.js</h3>
+      <p>Библиотека для интерактивных визуализаций данных с использованием SVG, HTML5 и CSS.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://d3js.org/d3.v7.min.js"&gt;&lt;/script&gt;
+&lt;svg width="100" height="100"&gt;&lt;/svg&gt;
+&lt;script&gt;
+  d3.select("svg").append("circle").attr("cx", 50).attr("cy", 50).attr("r", 40).style("fill", "purple");
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://d3js.org/" target="_blank">Официальный сайт D3.js</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+  </div>
+
+  <!-- 3D -->
+  <div class="section">
+    <h2>Библиотеки для 3D</h2>
+
+    <div class="library-block">
+      <h3>Three.js</h3>
+      <p>Популярная библиотека для создания 3D-графики с WebGL. Поддерживает сцены, камеры, свет и тени.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"&gt;&lt;/script&gt;
+&lt;div id="container"&gt;&lt;/div&gt;
+&lt;script&gt;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('container').appendChild(renderer.domElement);
+  const geometry = new THREE.BoxGeometry();
+  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+  camera.position.z = 5;
+  function animate() {
+    requestAnimationFrame(animate);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
+  }
+  animate();
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://threejs.org/" target="_blank">Официальный сайт Three.js</a></p>
+      <p><strong>Примеры работ:</strong> <a href="https://threejs.org/examples/" target="_blank">Примеры Three.js</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+
+    <div class="library-block">
+      <h3>Babylon.js</h3>
+      <p>Мощный 3D-движок для игр и приложений в браузере. Поддерживает физику, анимацию и звук.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdn.babylonjs.com/babylon.js"&gt;&lt;/script&gt;
+&lt;canvas id="renderCanvas"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  const canvas = document.getElementById("renderCanvas");
+  const engine = new BABYLON.Engine(canvas, true);
+  const scene = new BABYLON.Scene(engine);
+  const camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 0, -10), scene);
+  const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+  const box = BABYLON.MeshBuilder.CreateBox("box", { size: 2 }, scene);
+  engine.runRenderLoop(() => {
+    scene.render();
+  });
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://www.babylonjs.com/" target="_blank">Официальный сайт Babylon.js</a></p>
+      <p><strong>Примеры работ:</strong> <a href="https://www.babylonjs.com/demos/" target="_blank">Демо Babylon.js</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+  </div>
+
+  <!-- Другие библиотеки -->
+  <div class="section">
+    <h2>Другие распространённые библиотеки</h2>
+
+    <div class="library-block">
+      <h3>jQuery</h3>
+      <p>Классическая библиотека для упрощения работы с DOM, событиями, AJAX и анимациями.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+&lt;button id="btn"&gt;Нажми меня&lt;/button&gt;
+&lt;script&gt;
+  $("#btn").click(function() {
+    alert("Привет, мир!");
+  });
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://jquery.com/" target="_blank">Официальный сайт jQuery</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+
+    <div class="library-block">
+      <h3>Lodash</h3>
+      <p>Утилитарная библиотека с функциями для работы с массивами, объектами, строками и т.д.</p>
+      <p><strong>Пример кода:</strong></p>
+      <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const arr = [1, 2, 3, 4];
+  const sum = _.sum(arr);
+  console.log(sum); // 10
+&lt;/script&gt;</code></pre>
+      <p><strong>Ссылка:</strong> <a href="https://lodash.com/" target="_blank">Официальный сайт Lodash</a></p>
+      <button class="copy-button" onclick="copyCode(this)">Скопировать</button>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(button) {
+      const code = button.previousElementSibling.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => alert('Код скопирован!'));
+    }
+  </script>
+</body>
+</html>
