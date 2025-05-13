@@ -120,17 +120,17 @@ const courses = [
     description: "Узнайте, как разбить любую задачу на простые шаги ",
     link: "main/Artikla/どのように考えるのですか/index.html"
   },
-  //{ 
- //   step: "XX", 
-  //  title: "Бибилиотека гримуаров>", 
-   // description: "Узнай о ных способнастях JS написанных в другими магами ",
-   // link: "main/JS/Библиотеки/index.html"
- // },
   { 
     step: "XXI", 
     title: "Практическая работа по закреплению JS", 
     description: "Узнайте, как разбить любую задачу на простые шаги ",
     link: "main/JS/Practic2/index.html"
+  },
+  { 
+    step: "XXII", 
+    title: "Mock-данные и fetch", 
+    description: "Получаем и выводим данные",
+    link: "main/Final/НачалоКонца.html"
   }
 ];
 
