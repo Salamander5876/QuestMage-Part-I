@@ -131,6 +131,12 @@ const courses = [
     title: "Mock-данные и fetch", 
     description: "Получаем и выводим данные",
     link: "main/Final/НачалоКонца.html"
+  },
+  { 
+    step: "ΣI", 
+    title: "Поднятие сайта", 
+    description: "Запусстим свой сайт внутри локальной сети",
+    link: "main/CS/prs.html"
   }
 ];
 
